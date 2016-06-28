@@ -1,0 +1,578 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"disp",
+				"displayName"
+			],
+			[
+				"logue",
+				"loguearUsuario"
+			],
+			[
+				"db",
+				"dbentera"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"id_ga",
+				"id_galeria"
+			],
+			[
+				"gale",
+				"galerias-home"
+			],
+			[
+				"id_galeria",
+				"id_galeria_fotos"
+			],
+			[
+				"orde",
+				"order_by"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"pri",
+				"print_r"
+			],
+			[
+				"accent",
+				"accent-1"
+			],
+			[
+				"ng-re",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"regis",
+				"registroCantidadVentas"
+			],
+			[
+				"roo",
+				"$rootScope	AngularJS"
+			],
+			[
+				"ng-c",
+				"ng-controller	AngularJS"
+			],
+			[
+				"rou",
+				"$routeParams	AngularJS"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"ng-op",
+				"ng-options	AngularJS"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"id_pa",
+				"id_pa_mediamanager_categoria"
+			],
+			[
+				"pa",
+				"pa_mediamanager_categoria"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 372.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Discover Packages"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/opt/lampp/htdocs/ganzua"
+	],
+	"file_history":
+	[
+		"/opt/lampp/htdocs/burger/index.html",
+		"/opt/lampp/htdocs/alrio/db/modificaciones_23_jun_2016.sql",
+		"/opt/lampp/htdocs/alrio/application/views/admin/form_galeria_home.php",
+		"/opt/lampp/htdocs/alrio/application/views/admin/form_video_home.php",
+		"/opt/lampp/htdocs/alrio/application/models/Galeria_model.php",
+		"/opt/lampp/htdocs/alrio/assets/js/form_videos_home.js",
+		"/opt/lampp/htdocs/alrio/application/models/Video_model.php",
+		"/opt/lampp/htdocs/alrio/db/modificaciones_16_jun_2016.sql",
+		"/opt/lampp/htdocs/alrio/db/modificaciones_21_jun_2016.sql",
+		"/opt/lampp/htdocs/alrio/db/modificaciones_15_jun_2016.sql",
+		"/opt/lampp/htdocs/alrio/application/views/admin/form_video.php",
+		"/opt/lampp/htdocs/alrio/application/views/admin/listado_videos.php",
+		"/opt/lampp/htdocs/alrio/application/views/admin/form_modulo.php",
+		"/opt/lampp/htdocs/alrio/application/controllers/admin/Galerias.php",
+		"/opt/lampp/htdocs/alrio/application/views/templates/admin_header.php",
+		"/opt/lampp/htdocs/alrio/application/controllers/admin/Videos.php",
+		"/opt/lampp/htdocs/alrio/application/models/Departamento_model.php",
+		"/opt/lampp/htdocs/alrio/application/views/admin/form_departamento.php",
+		"/opt/lampp/htdocs/alrio/application/views/pa_mediamanager2/listado.php",
+		"/opt/lampp/htdocs/alrio/application/views/admin/listado_departamentos.php",
+		"/opt/lampp/htdocs/alrio/application/controllers/Pa_mediamanager.php",
+		"/opt/lampp/htdocs/alrio/application/controllers/admin/Departamentos.php",
+		"/opt/lampp/htdocs/alrio/assets/js/pa_mediamanager.js",
+		"/opt/lampp/htdocs/alrio/assets/js/pa_mediamanager_angular.js",
+		"/var/www/laslilas/www/js/controles.js",
+		"/home/patricio/.config/sublime-text-3/Packages/Emmet/Emmet.sublime-settings",
+		"/var/www/html/index.html",
+		"/var/www/laslilas/www/index.html",
+		"/opt/lampp/htdocs/alrio/assets/js/form_modulos_home.js",
+		"/opt/lampp/htdocs/alrio/assets/js/form_galerias_home.js",
+		"/opt/lampp/htdocs/alrio/application/models/Modulo_model.php",
+		"/opt/lampp/htdocs/alrio/application/views/admin/form_galeria.php",
+		"/opt/lampp/htdocs/alrio/assets/js/pa_mediamanager_galeria.js",
+		"/opt/lampp/htdocs/alrio/application/controllers/admin/Pa_mediamanager2.php",
+		"/opt/lampp/htdocs/alrio/db/modificaciones_13_jun_2016.sql",
+		"/opt/lampp/htdocs/alrio/.git/config",
+		"/opt/lampp/htdocs/alrio/.git/ORIG_HEAD",
+		"/opt/lampp/htdocs/alrio/application/config/routes.php",
+		"/var/www/laslilas/www/js/routers.js",
+		"/opt/lampp/htdocs/alrio/application/views/pa_mediamanager/listado_categorias.php",
+		"/opt/lampp/htdocs/alrio/assets/css/materialize.min.css",
+		"/var/www/v8/wp-content/themes/v8project/_sidebar.php",
+		"/var/www/v8/wp-content/themes/v8project/sidebar.php",
+		"/opt/lampp/htdocs/alrio/index.php",
+		"/home/patricio/Downloads/V8 Project/320x360.html",
+		"/home/patricio/Downloads/ram/320x360.html",
+		"/var/www/laslilas/www/detalle.html",
+		"/var/www/alrio/index.php",
+		"/var/www/alrio/application/config/database.php",
+		"/var/www/futurar/login_acl.php",
+		"/var/www/alrio/application/config/autoload.php",
+		"/home/patricio/Documents/Clase 2/numeros_perfectos.ads",
+		"/var/www/laslilas/www/carrito.html",
+		"/var/www/laslilas/www/catalogo.html",
+		"/var/www/laslilas/www (copy)/detalle.html",
+		"/home/patricio/.mysql/workbench/connections.xml",
+		"/var/www/alrio/application/config/config.php",
+		"/var/www/laslilas/config.xml",
+		"/var/www/laslilas/www/subcatalogo.html",
+		"/var/www/laslilas/www/razas.json",
+		"/var/www/laslilasprod/www/js/controles.js",
+		"/var/www/racing_calendar/www/index.html",
+		"/home/patricio/.local/share/Trash/files/config.3.xml",
+		"/home/patricio/.local/share/Trash/files/config.2.xml",
+		"/var/www/laslilas/platforms/browser/config.xml",
+		"/var/www/laslilas/www/js/index.js",
+		"/var/www/laslilas/www/filtros.html",
+		"/var/www/laslilas/www/laslilas.json",
+		"/var/www/laslilas/www/catalogo.json",
+		"/var/www/laslilas/www/css/index.css",
+		"/var/www/laslilas/www/data.json",
+		"/var/www/alrio/application/views/pa_mediamanager2/listado.php",
+		"/var/www/v8/wp-content/plugins/enviar_por_email/enviar_por_email.php",
+		"/var/www/autowikipedia/assets/js/angular/app.js",
+		"/var/www/laslilas/www/js/angular/app.js",
+		"/var/www/autowikipedia/application/views/racingcalendar2.php",
+		"/var/www/laslilas/www/js/angular/angular.js",
+		"/var/www/alrio/application/models/Pa_mediamanager_model.php",
+		"/var/www/alrio/application/controllers/admin/Pa_mediamanager2.php",
+		"/var/www/alrio/application/views/templates/admin_header.php",
+		"/var/www/alrio/application/views/pa_mediamanager/listado.php",
+		"/var/www/alrio/application/views/templates/admin_footer.php",
+		"/var/www/alrio/assets/js/pa_mediamanager_angular.js",
+		"/var/www/alrio/assets/js/pa_mediamanager.js",
+		"/var/www/alrio/db/pa_mediamanager.sql",
+		"/var/www/alrio/db/encuesta_activa.sql",
+		"/var/www/alrio/.htaccess",
+		"/var/www/alrio/application/views/welcome_message.php",
+		"/var/www/alrio/application/views/templates/header.php",
+		"/var/www/alrio/application/views/templates/footer.php",
+		"/home/patricio/Downloads/DPO_RT3290_LinuxSTA_V2600_20120508/src/os/linux/config.mk"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			");\n",
+			"userId",
+			");\n",
+			"galeria",
+			"modulo",
+			"fp_",
+			"fp.",
+			"fe_",
+			"pa.",
+			"auto",
+			"jpeg",
+			"\");\n",
+			"modulos",
+			"id_modulo",
+			"modulos",
+			"id_modulo",
+			"$data[\"page_id\"] = \"modulos\";",
+			"form_modulo",
+			"listado_modulos",
+			"modulo_model",
+			");\n",
+			"</nav",
+			",\"pos3\"",
+			"por_se",
+			"get_all_json",
+			"data",
+			"count",
+			"conso",
+			"registroVentas",
+			"\">\n",
+			"envi",
+			"console",
+			"ventaid_",
+			"delete",
+			"envi",
+			"mailt",
+			"imagen",
+			"col",
+			"input",
+			"patricio",
+			"device.ctrl",
+			"demo.device.ctrl",
+			">\n",
+			"'",
+			"' +",
+			"pa_mediamanager_db"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"video",
+			"pdf_",
+			"pdf.",
+			"fp_",
+			"fp.",
+			"departamentos",
+			"id_departamento",
+			"departamentos",
+			"id_departamento",
+			"$data[\"page_id\"] = \"departamentos\";",
+			"form_departamento",
+			"listado_departamentos",
+			"departamento_model",
+			"",
+			"\"imagen",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ganzua.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"fire",
+				"firebase.html"
+			],
+			[
+				"",
+				"index.html"
+			],
+			[
+				"video",
+				"application/models/Video_model.php"
+			],
+			[
+				"gal",
+				"application/models/Galeria_model.php"
+			],
+			[
+				"form_vi",
+				"application/views/admin/form_video_home.php"
+			],
+			[
+				"form_gal",
+				"application/views/admin/form_galeria_home.php"
+			],
+			[
+				"gale",
+				"application/controllers/admin/Galerias.php"
+			],
+			[
+				"form_mo",
+				"application/views/admin/form_modulo.php"
+			],
+			[
+				"admin_",
+				"application/views/templates/admin_header.php"
+			],
+			[
+				"depart",
+				"application/models/Departamento_model.php"
+			],
+			[
+				"departa",
+				"application/controllers/admin/Departamentos.php"
+			],
+			[
+				"pa_media",
+				"assets/js/pa_mediamanager.js"
+			],
+			[
+				"pa_medi",
+				"application/controllers/Pa_mediamanager.php"
+			],
+			[
+				"listado",
+				"application/views/pa_mediamanager2/listado.php"
+			],
+			[
+				"depar",
+				"application/controllers/admin/Departamentos.php"
+			],
+			[
+				"form_",
+				"application/views/admin/form_modulo.php"
+			],
+			[
+				"pa_med",
+				"assets/js/pa_mediamanager_angular.js"
+			],
+			[
+				"form_de",
+				"application/views/admin/form_departamento.php"
+			],
+			[
+				"listado_de",
+				"application/views/admin/listado_departamentos.php"
+			],
+			[
+				"admin",
+				"application/views/templates/admin_header.php"
+			],
+			[
+				"amdin",
+				"application/views/templates/admin_header.php"
+			],
+			[
+				"pa",
+				"assets/js/pa_mediamanager_angular.js"
+			],
+			[
+				"lista",
+				"application/views/pa_mediamanager2/listado.php"
+			],
+			[
+				"admn",
+				"application/views/templates/admin_header.php"
+			],
+			[
+				"modu",
+				"application/models/Modulo_model.php"
+			],
+			[
+				"galeir",
+				"assets/js/form_galerias_home.js"
+			],
+			[
+				"form_ga",
+				"application/views/admin/form_galeria_home.php"
+			],
+			[
+				"form_m",
+				"application/views/admin/form_modulo.php"
+			],
+			[
+				"rotu",
+				"application/config/routes.php"
+			],
+			[
+				"mate",
+				"assets/css/materialize.min.css"
+			],
+			[
+				"pa_me",
+				"assets/js/pa_mediamanager_angular.js"
+			],
+			[
+				"_si",
+				"wp-content/themes/v8project/_sidebar.php"
+			],
+			[
+				"conto",
+				"www/js/controles.js"
+			],
+			[
+				"cata",
+				"www/catalogo.html"
+			],
+			[
+				"inde",
+				"www/index.html"
+			],
+			[
+				"contro",
+				"www/js/controles.js"
+			],
+			[
+				"deta",
+				"www/detalle.html"
+			],
+			[
+				"index",
+				"www/js/index.js"
+			],
+			[
+				"pa_mediamanager_model",
+				"application/models/Pa_mediamanager_model.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/opt/lampp/htdocs/alrio/alrio.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 257.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
