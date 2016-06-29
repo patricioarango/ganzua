@@ -1,3 +1,4 @@
+/* 
 aplicacion.filter('getById', function() {
   return function(input, id) {
     var i=0, len=input.length;
@@ -215,6 +216,8 @@ aplicacion.controller('filtrosCtrl',['$scope', '$routeParams', '$http','$sce','$
     }
 
   }]);
+*/
+aplicacion.controller('catalogoCtrl',['$scope','$location','$http', function($scope, $location,$http){
 
-
+}]);
 
