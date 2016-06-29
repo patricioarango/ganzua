@@ -1,0 +1,19 @@
+<div class="container center  color_lilas_texto">
+        <h4>Tus Pedidos</h4>
+</div> 
+<ul class="collection">
+  <li ng-repeat="data in listado_ventas track by $index" class="collection-item avatar" ng-click="borrarVenta(data.esteeselkeydelarray)">
+    <img src="{{data.imagen_toro}}" alt="" class="circle">
+    <span class="title"><strong>{{data.nombre_toro}}</strong></span>
+    <p>{{data.nombre_raza_cat}} <br>
+       Dosis ${{data.precio}} - Total: ${{data.precio * data.cantidad_dosis}}
+    </p>
+    <a class="secondary-content"><i class="material-icons black-text">close</i></a>
+  </li>
+  <li class="collection-item avatar" ng-show="no_ventas">
+    <i class="material-icons circle pink darken-3">shopping_cart</i>
+    <span class="title">Todav&iacute;a no realizaste pedidos.</span>
+    <p><a href="#/">Mir&aacute; el cat&aacute;logo</a></p>
+  </li>
+</ul>
+

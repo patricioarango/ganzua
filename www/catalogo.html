@@ -1,0 +1,56 @@
+    <div class="container center  color_lilas_texto">
+      <h4 ng-hide="loginview">CATALOGO</h4>
+      <h4 ng-show="loginview">REGISTRO</h4>
+    </div> 
+      
+	<!--<div class="row">
+		<div class="col s6" ng-repeat="raza in razas">
+			<a href="#/subcatalogo/{{raza.id}}/nombre_raza/{{raza.categoria}}">
+				<img class="responsive-img" src="http://dummyimage.com/327x207.jpg/5fa2dd/ffffff" alt="">
+			</a>
+		</div>
+	</div>-->
+	<div class="row" ng-show="loginview" style="padding-top:15%">
+	    <form name="userForm" ng-submit="submitForm()">
+	      
+	        <div class="input-field col s12">
+	        <i class="material-icons prefix">email</i>
+	          <input id="email" type="email" class="validate" ng-model="user.email">
+	          <label for="email" data-error="wrong" data-success="right">Email</label>
+	        </div>
+	      
+	    <div class="input-field col s12">
+	        <i class="material-icons prefix">account_box</i>
+	          <input id="name" type="text" class="validate" ng-model="user.name">
+	          <label for="name" data-error="wrong" data-success="right">Nombre y Apellido</label>
+	        </div>
+		<div class="center-align">
+			 <button class="btn waves-effect waves-light pink darken-3" type="submit" name="action">Enviar
+    			<i class="material-icons right">send</i>
+  			</button>
+		</div>
+		</form>
+	</div>
+
+<!--
+	<div class="row" ng-hide="loginview">
+        <div class="col s6" ng-repeat="raza in razas ">
+          <div class="card">
+            <div class="card-image">
+              <img src="{{raza.imagen}}">
+              <span class="card-title">{{raza.nombre}}</span>
+            </div>
+            <div class="card-content">
+              <a href="#/subcatalogo/{{raza.nombre_raza}}/nombre_raza/{{raza.nombre}}">{{raza.nombre}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  -->
+  	<div class="row" ng-hide="loginview">
+        <div class="col s6" ng-repeat="raza in razas " style="padding:0 !important;line-height:0 !important;">
+        	<a href="#/subcatalogo/{{raza.nombre_raza}}/nombre_raza/{{raza.nombre}}" style="">
+              <img style="width:100%" src="{{raza.imagen}}">
+          	</a>
+      	</div>
+	</div>

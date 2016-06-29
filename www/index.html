@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html ng-app="App">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="css/materialize.min.css" />
+        <link rel="stylesheet" href="css/index.css" />
+        <title>Las Lilas</title>
+   
+    </head>
+
+    <style type="text/css">
+    .color_lilas{
+      background-color:#8b0d2a !important;
+    }
+    .color_lilas_texto{
+      color:#8b0d2a !important;
+    }
+    nav .brand-logo {
+      font-size: 17px !important;
+    }
+ 
+  .ng-view {
+    display: flex;
+    min-height: 90vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+      
+       /* label color */
+   .input-field label {
+     color: #000;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #000;
+   }
+        
+  </style>
+    <body>
+ <div class="navbar-fixed" ng-controller="navegacionCtrl">
+       <nav>
+        <div class="nav-wrapper white ">
+          <a href="#/" class="brand-logo color_lilas_texto">CABA&Ntilde;A LAS LILAS</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse color_lilas_texto right datos_form"><i class="material-icons">menu</i></a>
+          <a href="#/" class="color_lilas_texto left "><i class="material-icons">chevron_left</i></a>
+          <ul class="right hide-on-med-and-down"> </ul> 
+          <ul class="side-nav" id="mobile-demo" style="margin-top:56px;">
+            <li class="color_lilas_texto datos_form" id="form_name">Patricio Arango</li>
+            <li class="color_lilas_texto datos_form" id="form_email">patricioarango@telam.com.ar</li>
+            <div class="divider"></div>
+            <li><a href="#/">Catalogo<i style="float: left; margin-top: 18px;margin-right: 15px;" class="material-icons">filter_list</i></a></li>
+            <li><a href="#/filtros">Filtros<i class="material-icons"  style="float: left; margin-top: 18px;margin-right: 15px;">filter_list</i></a></li>
+            <li class="no-padding">
+              <ul class="collapsible collapsible-accordion">
+                <li>
+                  <a class="collapsible-header">Razas<i class="material-icons">keyboard_arrow_down</i></a>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li><a href="#/subcatalogo/angus_negro/nombre_raza/Angus Negro">Angus Negro</a></li>
+                      <li><a href="#/subcatalogo/angus_colorado/nombre_raza/Angus Colorado">Angus Colorado</a></li>
+                      <li><a href="#/subcatalogo/polled_hereford/nombre_raza/Polled Hereford">Polled Hereford</a></li>
+                      <li><a href="#/subcatalogo/brangus_negro/nombre_raza/Brangus Negro">Brangus Negro</a></li>
+                      <li><a href="#/subcatalogo/brangus_colorado/nombre_raza/Brangus Colorado">Brangus Colorado</a></li>
+                      <li><a href="#/subcatalogo/braford/nombre_raza/Braford">Braford</a></li>
+                      <li><a href="#/subcatalogo/brahman/nombre_raza/Brahman">Brahman</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <div class="divider"></div>
+            <li ng-repeat="venta in ventasActuales | limitTo:1"><a href="#/carrito">Carrito <span class="badge teal-text" id="cant_ventas"style="font-size: 110%">{{venta}}</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="ng-view" autoscroll="true"></div>
+
+    <div class="page-footer color_lilas white-text">
+        <div class="container center ">
+          Estancias y Caba&ntilde;a Las Lilas S.A.
+        </div>
+    </div>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/angular/angular.js"></script>
+  <script type="text/javascript" src="js/angular/angular-mocks.js"></script>
+  <script type="text/javascript" src="js/angular/angular-route.js"></script>
+  <script type="text/javascript" src="js/angular/angular-animate.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/routers.js"></script>
+  <script type="text/javascript" src="js/controles.js"></script>
+  <script   src="js/jquery.min.js" ></script>
+  <script src="js/materialize.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function() {
+    $(".button-collapse").sideNav(
+          {
+            edge: 'right',
+             closeOnClick: true // Choose the horizontal origin
+    });
+
+      // datos formulario
+      if (localStorage.getItem("rc2016_firstime") === null || localStorage.getItem("rc2016_firstime") == "0") {
+          $(".datos_form").hide();
+      } else {  
+          $(".datos_form").show();
+          $("#form_name").text(localStorage.getItem("rc2016_nombre"));
+          $("#form_email").text(localStorage.getItem("rc2016_email"));
+      }
+
+      //carrito
+      /*if (localStorage.getItem("laslilas_nro_ventas") === null) {
+        localStorage.setItem("laslilas_nro_ventas",0);
+      }
+
+      $("#cant_ventas").text(localStorage.getItem("laslilas_nro_ventas"));*/
+  });
+
+</script>
+
+
+  <script type="text/javascript">
+     app.initialize();
+ </script>
+    </body>
+</html>
