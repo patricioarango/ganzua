@@ -17,6 +17,7 @@
      <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
       <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
       <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+      <plugin name="net.roughshod.plugins.barcodescanner" spec="3.0.0" source="pgb" />
      <preference name="permissions" value="none" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
 
