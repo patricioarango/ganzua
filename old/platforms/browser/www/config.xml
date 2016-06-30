@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.patricioarango.ganzuaforalrio" version="1" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Ganzua</name>
+    <description>
+        Open the gates, please.
+    </description>
+    <author email="patricioarango@gmail.com" href="http://plus.google.com/+PatricioArango">
+        @patricioarango
+    </author>
+    <icon src="icon.png" />
+    <access origin="*" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="orientation" value="portrait" />
+    <preference name="permissions" value="none" />
+    <preference name="StatusBarBackgroundColor" value="#3498db" />
+</widget>
