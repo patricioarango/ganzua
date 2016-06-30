@@ -69,8 +69,34 @@ function getQrCode(){
    );
 }
 
-  firebase.auth().signInAnonymously().then(function(result){
-    alert(result.uid);
-  }).catch(function(error) {
-    console.log(error);
+function loguearUsuario(){
+  var provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/plus.login');
+  firebase.auth().signInWithRedirect(provider);
+
+}
+firebase.auth().getRedirectResult().then(function(result) {
+  if (result.credential) {
+    var token = result.credential.accessToken;
+  }
+  var user = result.user;
+}).catch(function(error) {
+  console.log(error);
+});
+
+function desloguearUsuario(){
+  firebase.auth().signOut().then(function(result) {
+    console.log(result);
+    console.log("aca");
+    window.location.reload();
   });
+}
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("logueado");
+    console.log(user);
+  } else {
+    console.log(" no logueado mantenido");
+  }
+});
