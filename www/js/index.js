@@ -75,24 +75,20 @@ function getQrCode(){
 }
 
 function loguearUsuario(){
-  var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/plus.login');
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
+    console.log("aca");
+window.plugins.googleplus.login(
+    {
+      'scopes': '', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+      'webClientId': '1071912290900-3qmnrom1qg0hgjk3j6cd9evv893gauma.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+      'offline': false, // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+    },
+    function (obj) {
+      alert(JSON.stringify(obj)); // do something useful instead of alerting
+    },
+    function (msg) {
+      alert('error: ' + msg);
+    }
+);
 
 }
 
