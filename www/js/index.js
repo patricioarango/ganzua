@@ -38,8 +38,16 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
-    }, 
-    getQrCode: function(){
+    } 
+};
+
+
+$("#escanear").on('click',function(e) {
+    e.preventDefault();
+    getQrCode();
+});
+
+function getQrCode(){
         console.log("aca");
         cordova.plugins.barcodeScanner.scan(
       function (result) {
@@ -59,11 +67,4 @@ var app = {
           "orientation" : "landscape" // Android only (portrait|landscape), default unset so it rotates with the device
       }
    );
-    }
-};
-
-
-$("#escanear").on('click',function(e) {
-    e.preventDefault();
-    getQrCode();
-});
+}
