@@ -65,5 +65,5 @@ var app = {
 
 $("#escanear").on('click',function(e) {
     e.preventDefault();
-    app.getQrCode();
+    getQrCode();
 });
