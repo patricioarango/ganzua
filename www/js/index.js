@@ -68,3 +68,9 @@ function getQrCode(){
       }
    );
 }
+
+  firebase.auth().signInAnonymously().then(function(result){
+    alert(result.uid);
+  }).catch(function(error) {
+    console.log(error);
+  });
