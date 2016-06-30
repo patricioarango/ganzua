@@ -1,1 +1,692 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"data",
+				"dataPagina"
+			],
+			[
+				"ass",
+				"assets"
+			],
+			[
+				"ng-re",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"regis",
+				"registroCantidadVentas"
+			],
+			[
+				"roo",
+				"$rootScope	AngularJS"
+			],
+			[
+				"ng-c",
+				"ng-controller	AngularJS"
+			],
+			[
+				"rou",
+				"$routeParams	AngularJS"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"ng-op",
+				"ng-options	AngularJS"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"id_pa",
+				"id_pa_mediamanager_categoria"
+			],
+			[
+				"pa",
+				"pa_mediamanager_categoria"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/index.html",
+			"settings":
+			{
+				"buffer_size": 2679,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/js/index.js",
+			"settings":
+			{
+				"buffer_size": 2456,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/opt/lampp/htdocs/ganzua"
+	],
+	"file_history":
+	[
+		"/opt/lampp/htdocs/ganzua/www/js/angular.min.js",
+		"/opt/lampp/htdocs/ganzua/www/js/angularfire.min.js",
+		"/opt/lampp/htdocs/alrio/application/views/admin/qr_code.php",
+		"/opt/lampp/htdocs/ganzua/.gitignore",
+		"/opt/lampp/htdocs/alrio/.gitignore",
+		"/opt/lampp/htdocs/alrio/application/controllers/admin/Modulos.php",
+		"/opt/lampp/htdocs/alrio/application/controllers/Welcome.php",
+		"/opt/lampp/htdocs/alrio/application/views/acl/login_acl.php",
+		"/opt/lampp/htdocs/burger/backend.html",
+		"/opt/lampp/htdocs/alrio/html/stylesheets/main.css",
+		"/home/patricio/Downloads/alrio-cagado/db/modificaciones_23_jun_2016.sql",
+		"/home/patricio/Downloads/alrio-cagado/db/modificaciones_21_jun_2016.sql",
+		"/opt/lampp/htdocs/alrio/application/models/Modulo_model.php",
+		"/opt/lampp/htdocs/telam/proveedores/espacios-publicitarios-personas-fisicas.php",
+		"/opt/lampp/htdocs/telam/proveedores/espacios-publicitarios-personas-juridicas.php",
+		"/opt/lampp/htdocs/telam/proveedores/bienes-y-servicios-personas-fisicas.php",
+		"/opt/lampp/htdocs/telam/proveedores/bienes-y-servicios-personas-juridicas.php",
+		"/opt/lampp/htdocs/telam/proveedores/registro.php",
+		"/opt/lampp/htdocs/burger/anonimo.html",
+		"/opt/lampp/htdocs/alrio/.htaccess",
+		"/opt/lampp/htdocs/alrio/application/logs/.gitignore",
+		"/opt/lampp/htdocs/alrio/application/.gitignore",
+		"/opt/lampp/htdocs/alrio/application/logs/tes.png-errors.txt",
+		"/opt/lampp/htdocs/alrio/application/views/admin/form_modulo.php",
+		"/opt/lampp/htdocs/pauta/application/libraries/firmador_digital.php",
+		"/opt/lampp/htdocs/alrio/application/views/templates/admin_header.php",
+		"/opt/lampp/htdocs/alrio/application/libraries/Ciqrcode.php",
+		"/opt/lampp/htdocs/alrio/application/controllers/acl/Acl_login.php",
+		"/home/patricio/Downloads/CodeIgniter-PHP-QR-Code-master/Ciqrcode.php",
+		"/var/www/v8/wp-content/themes/v8project/_sidebar.php",
+		"/var/www/v8/wp-content/themes/v8project/sidebar.php",
+		"/opt/lampp/htdocs/alrio/index.php",
+		"/home/patricio/Downloads/V8 Project/320x360.html",
+		"/home/patricio/Downloads/ram/320x360.html",
+		"/var/www/laslilas/www/js/controles.js",
+		"/var/www/laslilas/www/detalle.html",
+		"/var/www/alrio/index.php",
+		"/var/www/alrio/application/config/database.php",
+		"/var/www/futurar/login_acl.php",
+		"/var/www/alrio/application/config/autoload.php",
+		"/home/patricio/Documents/Clase 2/numeros_perfectos.ads",
+		"/var/www/laslilas/www/carrito.html",
+		"/var/www/laslilas/www/index.html",
+		"/var/www/laslilas/www/catalogo.html",
+		"/var/www/laslilas/www/js/routers.js",
+		"/var/www/laslilas/www (copy)/detalle.html",
+		"/home/patricio/.mysql/workbench/connections.xml",
+		"/var/www/alrio/application/config/config.php",
+		"/var/www/laslilas/config.xml",
+		"/var/www/laslilas/www/subcatalogo.html",
+		"/var/www/laslilas/www/razas.json",
+		"/var/www/laslilasprod/www/js/controles.js",
+		"/var/www/racing_calendar/www/index.html",
+		"/home/patricio/.local/share/Trash/files/config.3.xml",
+		"/home/patricio/.local/share/Trash/files/config.2.xml",
+		"/var/www/laslilas/platforms/browser/config.xml",
+		"/var/www/laslilas/www/js/index.js",
+		"/var/www/laslilas/www/filtros.html",
+		"/var/www/laslilas/www/laslilas.json",
+		"/var/www/laslilas/www/catalogo.json",
+		"/var/www/laslilas/www/css/index.css",
+		"/var/www/laslilas/www/data.json",
+		"/var/www/alrio/application/views/pa_mediamanager2/listado.php",
+		"/var/www/v8/wp-content/plugins/enviar_por_email/enviar_por_email.php",
+		"/var/www/autowikipedia/assets/js/angular/app.js",
+		"/var/www/laslilas/www/js/angular/app.js",
+		"/var/www/autowikipedia/application/views/racingcalendar2.php",
+		"/var/www/laslilas/www/js/angular/angular.js",
+		"/var/www/alrio/application/models/Pa_mediamanager_model.php",
+		"/var/www/alrio/application/controllers/admin/Pa_mediamanager2.php",
+		"/var/www/alrio/application/views/templates/admin_header.php",
+		"/var/www/alrio/application/views/pa_mediamanager/listado.php",
+		"/var/www/alrio/application/views/templates/admin_footer.php",
+		"/var/www/alrio/assets/js/pa_mediamanager_angular.js",
+		"/var/www/alrio/assets/js/pa_mediamanager.js",
+		"/var/www/alrio/db/pa_mediamanager.sql",
+		"/var/www/alrio/db/encuesta_activa.sql",
+		"/var/www/alrio/.htaccess",
+		"/var/www/alrio/application/views/welcome_message.php",
+		"/var/www/alrio/application/views/templates/header.php",
+		"/var/www/alrio/application/views/templates/footer.php",
+		"/home/patricio/Downloads/DPO_RT3290_LinuxSTA_V2600_20120508/src/os/linux/config.mk"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"fcpath",
+			"data",
+			"count",
+			"conso",
+			"registroVentas",
+			"\">\n",
+			"envi",
+			"console",
+			"ventaid_",
+			"delete",
+			"envi",
+			"mailt",
+			"imagen",
+			"col",
+			"input",
+			"patricio",
+			"device.ctrl",
+			"demo.device.ctrl",
+			">\n",
+			"'",
+			"' +",
+			"pa_mediamanager_db"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"imagen",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"color_scheme": "Packages/User/Color Highlighter/themes/Mac Classic.tmTheme",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "www/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2679,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1465,
+								1465
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1551,
+										1557
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1466,
+										1472
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Mac Classic.tmTheme",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 621.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/js/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2456,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1477,
+								1477
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2453,
+										2454
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										816,
+										817
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Mac Classic.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 552.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ganzua.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"inde",
+				"www/js/index.js"
+			],
+			[
+				".css",
+				"html/stylesheets/main.css"
+			],
+			[
+				"welco",
+				"application/controllers/Welcome.php"
+			],
+			[
+				"modulos",
+				"application/controllers/admin/Modulos.php"
+			],
+			[
+				"modulo",
+				"application/models/Modulo_model.php"
+			],
+			[
+				"login",
+				"application/views/acl/login_acl.php"
+			],
+			[
+				"form",
+				"application/views/admin/form_modulo.php"
+			],
+			[
+				"qr_",
+				"application/views/admin/qr_code.php"
+			],
+			[
+				"modu",
+				"application/controllers/admin/Modulos.php"
+			],
+			[
+				"admin",
+				"application/views/templates/admin_header.php"
+			],
+			[
+				"acl_lo",
+				"application/controllers/acl/Acl_login.php"
+			],
+			[
+				"alogin",
+				"application/views/acl/login_acl.php"
+			],
+			[
+				"_si",
+				"wp-content/themes/v8project/_sidebar.php"
+			],
+			[
+				"conto",
+				"www/js/controles.js"
+			],
+			[
+				"cata",
+				"www/catalogo.html"
+			],
+			[
+				"contro",
+				"www/js/controles.js"
+			],
+			[
+				"deta",
+				"www/detalle.html"
+			],
+			[
+				"index",
+				"www/js/index.js"
+			],
+			[
+				"pa_mediamanager_model",
+				"application/models/Pa_mediamanager_model.php"
+			],
+			[
+				"lista",
+				"application/views/pa_mediamanager/listado.php"
+			],
+			[
+				"listado",
+				"application/views/pa_mediamanager/listado.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/opt/lampp/htdocs/laslilas/laslilas.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 257.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
