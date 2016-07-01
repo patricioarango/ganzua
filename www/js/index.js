@@ -77,7 +77,7 @@ function getQrCode(){
 function loguearUsuario(){
 window.plugins.googleplus.login(
         {},
-        function (obj) {
+        function (obj) { console.log(obj);console.log("comun");
           document.querySelector("#image").src = obj.imageUrl;
           document.querySelector("#image").style.visibility = 'visible';
           document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
@@ -88,6 +88,20 @@ window.plugins.googleplus.login(
     );
 
 }
+trySilentLogin();
+  function trySilentLogin() {
+      window.plugins.googleplus.trySilentLogin(
+          {},
+          function (obj) { console.log(obj);console.log("silent");
+            document.querySelector("#image").src = obj.imageUrl;
+            document.querySelector("#image").style.visibility = 'visible';
+            document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
+          },
+          function (msg) {
+            document.querySelector("#feedback").innerHTML = "error: " + msg;
+          }
+      );
+    }
 
 function desloguearUsuario(){
   firebase.auth().signOut().then(function(result) {
