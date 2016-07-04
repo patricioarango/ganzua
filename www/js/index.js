@@ -74,42 +74,6 @@ function getQrCode(){
    );
 }
 
-function loguearUsuario(){
-window.plugins.googleplus.login(
-        {},
-        function (obj) { console.log(obj);console.log("comun");
-          document.querySelector("#image").src = obj.imageUrl;
-          document.querySelector("#image").style.visibility = 'visible';
-          document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
-        },
-        function (msg) {
-          document.querySelector("#feedback").innerHTML = "error: " + msg;
-        }
-    );
-
-}
-trySilentLogin();
-  function trySilentLogin() {
-      window.plugins.googleplus.trySilentLogin(
-          {},
-          function (obj) { console.log(obj);console.log("silent");
-            document.querySelector("#image").src = obj.imageUrl;
-            document.querySelector("#image").style.visibility = 'visible';
-            document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
-          },
-          function (msg) {
-            document.querySelector("#feedback").innerHTML = "error: " + msg;
-          }
-      );
-    }
-
-function desloguearUsuario(){
-  firebase.auth().signOut().then(function(result) {
-    console.log(result);
-    console.log("aca");
-    window.location.reload();
-  });
-}
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -119,3 +83,39 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(" no logueado mantenido");
   }
 });
+
+function loguearUsuarioGoogle(){
+  window.plugins.googleplus.login(
+          {},
+          function (obj) { 
+            return obj
+          },
+          function (msg) {
+            return false;
+          }
+  );
+}
+
+function estaLogueado(){
+      window.plugins.googleplus.trySilentLogin(
+          {},
+          function (obj) { 
+            return obj;
+          },
+          function (msg) {
+            return false;
+          }
+      );  
+}
+
+function desloguearUsuario(){
+  firebase.auth().signOut().then(function(result) {
+    console.log(result);
+    console.log("aca");
+    window.location.reload();
+  });
+}
+
+function mostrarPerfilUsuario(data){
+
+}
