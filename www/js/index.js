@@ -119,7 +119,13 @@ function desloguearUsuario(){
 }
 
 function mostrarPerfil(data){
-    $("#logueado-google").show();
-    $("body").removeClass('fondo');
+
 }
 
+function showIndex(){
+
+}
+
+function showProfile(){
+
+}
