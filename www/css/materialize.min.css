@@ -72,3 +72,23 @@
 	font-size: 1.5em;
 }
 
+@import 'https://fonts.googleapis.com/css?family=Ubuntu';
+@import 'https://fonts.googleapis.com/css?family=Catamaran:700';
+.ubuntu {
+    font-family: 'Ubuntu', sans-serif;
+}
+.catamaran {
+    font-family: 'Catamaran', sans-serif;
+}
+.fondo { 
+	/*background: url(img/fondo1.png) no-repeat center center fixed; */
+	/*background: url(img/fondo2.jpg) no-repeat center center fixed; */
+	/*background: url(img/fondo3.jpg) no-repeat center center fixed; */
+	/*background: url(img/fondo4.jpg) no-repeat center center fixed; */
+	/*background: url(img/fondo6.jpg) no-repeat center center fixed; */
+	background: url(img/fondo6.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
