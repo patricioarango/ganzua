@@ -34,6 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        estaLogueado();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -85,13 +86,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function loguearUsuarioGoogle(){
+  $("body").addClass('fondo');
   window.plugins.googleplus.login(
           {},
           function (obj) { 
-            return obj
+            mostrarPerfil(obj);
           },
           function (msg) {
-            return false;
+            loguearUsuarioGoogle();
           }
   );
 }
@@ -100,10 +102,10 @@ function estaLogueado(){
       window.plugins.googleplus.trySilentLogin(
           {},
           function (obj) { 
-            return obj;
+            mostrarPerfil(obj);
           },
           function (msg) {
-            return false;
+            loguearUsuarioGoogle();
           }
       );  
 }
@@ -111,11 +113,13 @@ function estaLogueado(){
 function desloguearUsuario(){
   firebase.auth().signOut().then(function(result) {
     console.log(result);
-    console.log("aca");
-    window.location.reload();
+      console.log("aca");
+      window.location.reload();
   });
 }
 
-function mostrarPerfilUsuario(data){
-
+function mostrarPerfil(data){
+    $("#logueado-google").show();
+    $("body").removeClass('fondo');
 }
+
