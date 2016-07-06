@@ -33,8 +33,8 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-        estaLogueado();
+        app.receivedEvent('deviceready'); console.log("aca");
+        //estaLogueado();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -42,7 +42,7 @@ var app = {
     } 
 };
 
-
+/*
 $("#escanear").on('click',function(e) {
     e.preventDefault();
     getQrCode();
@@ -50,7 +50,7 @@ $("#escanear").on('click',function(e) {
 
 $("#loguearUsuario").on('click',function(e) {
     e.preventDefault();
-    loguearUsuario();
+    loguearUsuarioGoogle();
 });
 
 function getQrCode(){
@@ -99,10 +99,10 @@ function loguearUsuarioGoogle(){
   );
 }
 
-function estaLogueado(){
+function estaLogueado(){ console.log("loguewsfdf");
       window.plugins.googleplus.trySilentLogin(
           {},
-          function (obj) { 
+          function (obj) { console.log("aca");
             mostrarPerfil(obj);
           },
           function (msg) {
@@ -118,7 +118,8 @@ function desloguearUsuario(){
       window.location.reload();
   });
 }
-
+*/
+/*
 function mostrarPerfil(data){
 
 }
@@ -130,3 +131,4 @@ function showIndex(){
 function showProfile(){
 
 }
+*/
