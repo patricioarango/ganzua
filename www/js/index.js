@@ -87,6 +87,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function loguearUsuarioGoogle(){
   $("body").addClass('fondo');
+  $("#login").show();
   window.plugins.googleplus.login(
           {},
           function (obj) { 
