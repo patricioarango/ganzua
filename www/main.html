@@ -4,7 +4,7 @@
     <p class="center-align catamaran" style="margin-top:-30px;font-weight:700;font-size:2em">everyday stuff, easier</p>
   </div>
   <div class="row">
-    <div class="col s4 offset-s4 white-text" style="margin-top:50%;">
+    <div class="col s4 offset-s4 white-text" style="margin-top:50%;" id="loguearUsuarioGoogle">
         <div class="valign-wrapper">
             <img src="img/google-logo.png" width="50px" />
             <span class="valing" style="margin-left:10px;font-size:1.2em;">Login with Google</span>
@@ -12,4 +12,19 @@
     </div>
   </div>
 </div>
-
+<script>
+  $("#loguearUsuarioGoogle").click(function(event) {
+   loguearUsuarioGoogle();
+  });
+  function loguearUsuarioGoogle(){
+  window.plugins.googleplus.login(
+          {},
+          function (obj) { 
+            mostrarPerfil(obj);
+          },
+          function (msg) {
+            loguearUsuarioGoogle();
+          }
+  );
+}
+</script>
