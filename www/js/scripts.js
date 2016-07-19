@@ -30,22 +30,26 @@ $("#google_login").on('click', function(event) {
   window.plugins.googleplus.login(
             {},
             function (obj) { 
-              alert(obj);
+              console.log("ordinary login");
+              console.log(obj);
             },
             function (msg) {
-              alert(msg);
+              console.log("ordinary login error");
+              console.log(msg);
             }
     );
 });
 
-function estaLogueado(){ console.log("loguewsfdf");
+function estaLogueado(){ 
       window.plugins.googleplus.trySilentLogin(
           {},
-          function (obj) { console.log("aca");
-            alert(obj);
+          function (obj) { 
+              console.log("silent login");
+              console.log(obj);
           },
           function (msg) {
-            alert(msg);
+              console.log("silent login");
+              console.log(msg);
           }
       );  
 }
