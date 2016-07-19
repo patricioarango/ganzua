@@ -42,10 +42,10 @@ function estaLogueado(){ console.log("loguewsfdf");
       window.plugins.googleplus.trySilentLogin(
           {},
           function (obj) { console.log("aca");
-            mostrarPerfil(obj);
+            alert(obj);
           },
           function (msg) {
-            loguearUsuarioGoogle();
+            alert(msg);
           }
       );  
 }
