@@ -25,15 +25,18 @@ function getQrCode(){
    );
 }
 
-window.plugins.googleplus.login(
-          {},
-          function (obj) { 
-            alert(obj);
-          },
-          function (msg) {
-            alert(msg);
-          }
-  );
+$("#google_login").on('click', function(event) {
+  event.preventDefault();
+  window.plugins.googleplus.login(
+            {},
+            function (obj) { 
+              alert(obj);
+            },
+            function (msg) {
+              alert(msg);
+            }
+    );
+});
 
 function estaLogueado(){ console.log("loguewsfdf");
       window.plugins.googleplus.trySilentLogin(
