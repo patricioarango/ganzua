@@ -24,3 +24,25 @@ function getQrCode(){
       }
    );
 }
+
+window.plugins.googleplus.login(
+          {},
+          function (obj) { 
+            alert(obj);
+          },
+          function (msg) {
+            alert(msg);
+          }
+  );
+
+function estaLogueado(){ console.log("loguewsfdf");
+      window.plugins.googleplus.trySilentLogin(
+          {},
+          function (obj) { console.log("aca");
+            mostrarPerfil(obj);
+          },
+          function (msg) {
+            loguearUsuarioGoogle();
+          }
+      );  
+}
