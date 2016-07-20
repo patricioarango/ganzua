@@ -53,3 +53,13 @@ function estaLogueado(){
           }
       );  
 }
+
+
+$("#google_deslogin").on('click', function(event) {
+    event.preventDefault();
+    window.plugins.googleplus.logout(
+        function (msg) {
+          console.log(msg);
+        }
+    );
+});
