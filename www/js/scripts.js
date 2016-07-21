@@ -25,41 +25,46 @@ function getQrCode(){
    );
 }
 
+//login 
+var lock = null;
+$(document).ready(function() {
+   lock = new Auth0Lock('At7v7fYN08g5FK3MY3c7LRmg44kgnNzN', 'patricioarango.auth0.com', {
+       auth: { 
+           params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
+       }
+   });
+});
 $("#google_login").on('click', function(event) {
-  event.preventDefault();
-  window.plugins.googleplus.login(
-            {},
-            function (obj) { 
-              console.log("ordinary login");
-              console.log(obj);
-            },
-            function (msg) {
-              console.log("ordinary login error");
-              console.log(msg);
-            }
-    );
+  lock.show();
+});
+
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+    console.log(profile);
+    console.log('id_token', authResult.idToken);
+    localStorage.setItem('id_token', authResult.idToken);
+  });
+});
+
+$.ajaxSetup({
+  'beforeSend': function(xhr) {
+    if (localStorage.getItem('id_token')) {
+      xhr.setRequestHeader('Authorization',
+            'Bearer ' + localStorage.getItem('id_token'));
+    }
+  }
 });
 
 function estaLogueado(){ 
-      window.plugins.googleplus.trySilentLogin(
-          {},
-          function (obj) { 
-              console.log("silent login");
-              console.log(obj);
-          },
-          function (msg) {
-              console.log("silent login");
-              console.log(msg);
-          }
-      );  
+ 
 }
 
 
 $("#google_deslogin").on('click', function(event) {
     event.preventDefault();
-    window.plugins.googleplus.logout(
-        function (msg) {
-          console.log(msg);
-        }
-    );
+
 });
