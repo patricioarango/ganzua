@@ -34,6 +34,9 @@ $(document).ready(function() {
        }
    });
 });
+
+
+
 $("#google_login").on('click', function(event) {
   lock.show();
 });
@@ -50,14 +53,7 @@ lock.on("authenticated", function(authResult) {
   });
 });
 
-$.ajaxSetup({
-  'beforeSend': function(xhr) {
-    if (localStorage.getItem('id_token')) {
-      xhr.setRequestHeader('Authorization',
-            'Bearer ' + localStorage.getItem('id_token'));
-    }
-  }
-});
+
 
 function estaLogueado(){ 
  
