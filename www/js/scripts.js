@@ -53,7 +53,28 @@ lock.on("authenticated", function(authResult) {
   });
 });
 
+$.ajaxSetup({
+  'beforeSend': function(xhr) {
+    if (localStorage.getItem('id_token')) {
+      xhr.setRequestHeader('Authorization',
+            'Bearer ' + localStorage.getItem('id_token'));
+    }
+  }
+});
 
+
+  //retrieve the profile:
+var id_token = localStorage.getItem('id_token');
+if (id_token) {
+  lock.getProfile(id_token, function (err, profile) {
+    if (err) {
+      console.log(err.message);
+    }
+    // Display user information
+    console.log(profile);
+
+  });
+}
 
 function estaLogueado(){ 
  
