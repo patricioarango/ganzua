@@ -30,10 +30,9 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="net.roughshod.plugins.barcodescanner" spec="3.0.0" source="pgb" />
-<gap:plugin name="cordova-plugin-googleplus" source="npm">
-  <param name="REVERSED_CLIENT_ID" value="1071912290900-3qmnrom1qg0hgjk3j6cd9evv893gauma.apps.googleusercontent.com" />
-</gap:plugin>    
-   
+    <gap:plugin spec="https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git" source="git">
+        <param name="REVERSED_CLIENT_ID" value="1071912290900-3qmnrom1qg0hgjk3j6cd9evv893gauma.apps.googleusercontent.com" />
+    </gap:plugin>
     <icon src="icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
