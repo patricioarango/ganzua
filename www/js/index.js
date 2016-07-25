@@ -27,34 +27,39 @@ var app = {
         
     },onDeviceReady: function() {
         //variable para registro unico
-        var deviceid = window.localStorage.getItem("ganzua_deviceid");
+        if (localStorage.getItem("ganzua_deviceid") === null) {
+            var deviceid = "0";
+        } else {
+            var deviceid = localStorage.getItem("ganzua_deviceid");
+        }
+
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
-    },successHandler: function(result) {
-        console.log('registration Callback Success! Result = '+result);
-    },errorHandler:function(error) {
-        console.log("registration error");
-        console.log(error);
-    },onNotificationGCM: function(e) {
-        switch( e.event ) {
-            case 'registered':
-                if ( e.regid.length > 0 && deviceid === null || deviceid == "0") {
-                    var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/ganzua';
-                    insertar_id(url,e.regid);
-                }
-            break;
-            case 'message':
-              // this is the actual push notification. its format depends on the data model from the push server
-              alert('message = '+e.message+' msgcnt = '+e.msgcnt);
-            break;
-            case 'error':
-              alert('GCM error = '+e.msg);
-            break;
-            default:
-              alert('An unknown GCM event has occurred');
-              break;
+        },successHandler: function(result) {
+            console.log('registration Callback Success! Result = '+result);
+        },errorHandler:function(error) {
+            console.log("registration error");
+            console.log(error);
+        },onNotificationGCM: function(e) {
+            switch( e.event ) {
+                case 'registered':
+                    if ( e.regid.length > 0 && deviceid === null || deviceid == "0") {
+                        var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/ganzua';
+                        insertar_id(url,e.regid);
+                    }
+                break;
+                case 'message':
+                  // this is the actual push notification. its format depends on the data model from the push server
+                  alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+                break;
+                case 'error':
+                  alert('GCM error = '+e.msg);
+                break;
+                default:
+                  alert('An unknown GCM event has occurred');
+                  break;
+            }
         }
-    }
 };//devideready
 
 function insertar_id(url,deviceid){
