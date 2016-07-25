@@ -25,12 +25,15 @@ function getQrCode(){
    );
 }
 
+$(".pedir_email").hide();
+
 $("#enviar_email").on('click', function(event) {
   event.preventDefault();
   var email = $("#email").val();
   window.localStorage.setItem("ganzua_email",email);
+  var email_name   = email.substring(0, email.lastIndexOf("@"));
   var deviceid = window.localStorage.getItem("ganzua_deviceid");
-  window.location.href = "http://autowikipedia.es/google_login/" + email + "/" + deviceid;
+  window.location.href = "http://autowikipedia.es/google_login/index/" + email_name + "/" + deviceid;
 });
 
 

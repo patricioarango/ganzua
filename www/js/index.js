@@ -65,7 +65,9 @@ function insertar_id(url,deviceid){
     console.log("estoy adentro de insertar_id");
     $.post(url, function(data) {
         if (data == "ok"){
-           window.localStorage.setItem("ganzua_deviceid",deviceid);
+            console.log("insercion deviceid correcta");
+            window.localStorage.setItem("ganzua_deviceid",deviceid);
+            $(".pedir_email").show();
         }
     });
 }
