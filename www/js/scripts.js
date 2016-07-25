@@ -25,6 +25,14 @@ function getQrCode(){
    );
 }
 
+$("#enviar_email").on('click', function(event) {
+  event.preventDefault();
+  var email = $("#email").val();
+  window.localStorage.setItem("ganzua_email",email);
+  var deviceid = window.localStorage.getItem("ganzua_deviceid");
+  window.location.href = "http://autowikipedia.es/google_login/" + email + "/" + deviceid;
+});
+
 
 
 

@@ -26,6 +26,8 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         
     },onDeviceReady: function() {
+        //variable para registro unico
+        var deviceid = window.localStorage.getItem("ganzua_deviceid");
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
     },successHandler: function(result) {
@@ -36,11 +38,9 @@ var app = {
     },onNotificationGCM: function(e) {
         switch( e.event ) {
             case 'registered':
-                if ( e.regid.length > 0 ) {
+                if ( e.regid.length > 0 && deviceid === null || deviceid == "0") {
                     var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/ganzua';
-                    insertar_id(url);
-                    console.log("Regid " + e.regid);
-                    $("#eventos").text("el e.regid es " + e.regid);
+                    insertar_id(url,e.regid);
                 }
             break;
             case 'message':
@@ -57,11 +57,11 @@ var app = {
     }
 };//devideready
 
-function insertar_id(url){
+function insertar_id(url,deviceid){
     console.log("estoy adentro de insertar_id");
     $.post(url, function(data) {
         if (data == "ok"){
-            alert("todo perfecto;");
+           window.localStorage.setItem("ganzua_deviceid",deviceid);
         }
     });
 }
