@@ -25,63 +25,14 @@ function getQrCode(){
    );
 }
 
-//login 
-var lock = null;
-$(document).ready(function() {
-   lock = new Auth0Lock('At7v7fYN08g5FK3MY3c7LRmg44kgnNzN', 'patricioarango.auth0.com', {
-       auth: { 
-           params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
-       }
-   });
-});
 
 
 
-$("#google_login").on('click', function(event) {
-  lock.show();
-});
-
-lock.on("authenticated", function(authResult) {
-  lock.getProfile(authResult.idToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
-    console.log(profile);
-    console.log('id_token', authResult.idToken);
-    localStorage.setItem('id_token', authResult.idToken);
-  });
-});
-
-$.ajaxSetup({
-  'beforeSend': function(xhr) {
-    if (localStorage.getItem('id_token')) {
-      xhr.setRequestHeader('Authorization',
-            'Bearer ' + localStorage.getItem('id_token'));
-    }
-  }
-});
 
 
-  //retrieve the profile:
-var id_token = localStorage.getItem('id_token');
-if (id_token) {
-  lock.getProfile(id_token, function (err, profile) {
-    if (err) {
-      console.log(err.message);
-    }
-    // Display user information
-    console.log(profile);
-
-  });
-}
-
-function estaLogueado(){ 
- 
-}
 
 
-$("#google_deslogin").on('click', function(event) {
-    event.preventDefault();
 
-});
+
+
+
