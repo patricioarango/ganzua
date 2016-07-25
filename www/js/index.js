@@ -29,8 +29,9 @@ var app = {
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
     },successHandler: function(result) {
-        console.log('Callback Success! Result = '+result);
+        console.log('registration Callback Success! Result = '+result);
     },errorHandler:function(error) {
+        console.log("registration error");
         console.log(error);
     },onNotificationGCM: function(e) {
         switch( e.event ) {
