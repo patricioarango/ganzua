@@ -16,6 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */ 
+//variable para registro unico
+if (localStorage.getItem("ganzua_deviceid") === null) {
+    var deviceid = "0";
+} else {
+    var deviceid = localStorage.getItem("ganzua_deviceid");
+}
 
 var app = {
     // Application Constructor
@@ -26,13 +32,6 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         
     },onDeviceReady: function() {
-        //variable para registro unico
-        if (localStorage.getItem("ganzua_deviceid") === null) {
-            var deviceid = "0";
-        } else {
-            var deviceid = localStorage.getItem("ganzua_deviceid");
-        }
-
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
         },successHandler: function(result) {
