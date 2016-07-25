@@ -17,6 +17,7 @@
  * under the License.
  */ 
 //variable para registro unico
+window.localStorage.removeItem("ganzua_deviceid"); //HARDCODE
 if (localStorage.getItem("ganzua_deviceid") === null) {
     var deviceid = "0";
 } else {
