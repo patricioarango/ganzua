@@ -90,7 +90,7 @@ function usuario_habilitado(email){
     });
     if (res === false){
       console.log("habla con el capo para que te habilite");
-      ("#no_authorized_card").show();
+      $("#no_authorized_card").show();
     }     
   });
 }
