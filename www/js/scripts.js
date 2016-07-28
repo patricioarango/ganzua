@@ -25,8 +25,6 @@ function getQrCode(){
    );
 }
 
-$(".pedir_email").hide();
-
 $("#enviar_email").on('click', function(event) {
   event.preventDefault();
   var email = $("#email").val();
@@ -103,6 +101,7 @@ function loguear_usuario_firebase(){
 }
 
 function mostrar_card(cards_a_mostrar){
+  $("loading").hide();
   //cards de sitio
   cards = ["principal_card","no_authorized_card","user_card","devices_card","escanear_card"];
   $.each(cards, function(i, card) {
