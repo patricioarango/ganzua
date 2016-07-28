@@ -84,7 +84,7 @@ function usuario_habilitado(email){
     });
     if (res === false){
       console.log("habla con el capo para que te habilite");
-      cards_a_mostrar(['no_authorized_card']);
+      mostrar_card(['no_authorized_card']);
     }     
   });
 }
