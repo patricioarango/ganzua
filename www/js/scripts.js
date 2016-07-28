@@ -77,10 +77,13 @@ function usuario_habilitado(email){
        if (val == email) {
         console.log("alcoyana - alcoyana");
         console.log("estás habilitado, tomá tu token");
-        loguear_usuario_firebase();
+        res = true;        
        }
     });
-    if (res === false){
+    
+    if (res === true){
+      loguear_usuario_firebase();
+    } else {
       console.log("habla con el capo para que te habilite");
       mostrar_card(['no_authorized_card']);
     }     
@@ -92,7 +95,7 @@ function loguear_usuario_firebase(){
   var uid = window.localStorage.getItem("ganzua_uid");
   var deviceid = window.localStorage.getItem("ganzua_deviceid");
   var email = window.localStorage.getItem("ganzua_email");
-  db.ref("appusers").set({
+  db.ref("appusers/"+uid).set({
     uid: uid,
     deviceid: deviceid,
     email: email
