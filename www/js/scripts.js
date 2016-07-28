@@ -93,7 +93,7 @@ function loguear_usuario_firebase(){
   var deviceid = window.localStorage.getItem("ganzua_deviceid");
   var email = window.localStorage.getItem("ganzua_email");
   db.ref("appusers").set({
-    uid: userId,
+    uid: uid,
     deviceid: deviceid,
     email: email
   });
@@ -101,7 +101,7 @@ function loguear_usuario_firebase(){
 }
 
 function mostrar_card(cards_a_mostrar){
-  $("loading").hide();
+  $("#loading").hide();
   //cards de sitio
   cards = ["principal_card","no_authorized_card","user_card","devices_card","escanear_card"];
   $.each(cards, function(i, card) {
