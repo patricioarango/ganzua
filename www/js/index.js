@@ -68,7 +68,7 @@ function insertar_id(url,deviceid){
         if (data == "ok"){
             console.log("insercion deviceid correcta");
             window.localStorage.setItem("ganzua_deviceid",deviceid);
-            $(".pedir_email").show();
+            cards_a_mostrar(['principal_card']);
         }
     });
 }

@@ -33,13 +33,7 @@ $("#enviar_email").on('click', function(event) {
   window.localStorage.setItem("ganzua_email",email);
   var email_name   = email.substring(0, email.lastIndexOf("@"));
   var deviceid = window.localStorage.getItem("ganzua_deviceid");
-  if (usuario_habilitado(email)){
-    loguear_usuario_firebase();
-    var uid = window.localStorage.getItem("ganzua_uid");    
-    window.location.href = "http://autowikipedia.es/google_login/index/" + uid;
-  } else {
-
-  }
+  usuario_habilitado(email);
 });
 
 // Initialize Firebase
@@ -85,12 +79,12 @@ function usuario_habilitado(email){
        if (val == email) {
         console.log("alcoyana - alcoyana");
         console.log("estás habilitado, tomá tu token");
-        res = true;
+        loguear_usuario_firebase();
        }
     });
     if (res === false){
       console.log("habla con el capo para que te habilite");
-      $("#no_authorized_card").show();
+      cards_a_mostrar(['no_authorized_card']);
     }     
   });
 }
@@ -105,6 +99,19 @@ function loguear_usuario_firebase(){
     deviceid: deviceid,
     email: email
   });
+  window.location.href = "http://autowikipedia.es/google_login/index/" + uid;  
+}
+
+function mostrar_card(cards_a_mostrar){
+  //cards de sitio
+  cards = ["principal_card","no_authorized_card","user_card","devices_card","escanear_card"];
+  $.each(cards, function(i, card) {
+     $("#"+card).hide();
+  });
+
+  $.each(cards_a_mostrar, function(i, card) {
+     $("#"+card).show();
+  });  
 }
 
 
