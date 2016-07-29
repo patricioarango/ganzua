@@ -17,11 +17,10 @@
  * under the License.
  */ 
 //variable para registro unico
-window.localStorage.setItem("ganzua_deviceid","0");
-if (localStorage.getItem("ganzua_deviceid") === null) {
-    var deviceid = "0";
+if (localStorage.getItem("ganzua_registrado") === null) {
+    var registrado = "0";
 } else {
-    var deviceid = localStorage.getItem("ganzua_deviceid");
+    var registrado = localStorage.getItem("ganzua_registrado");
 }
 
 var app = {
@@ -50,14 +49,15 @@ var app = {
         },onNotificationGCM: function(e) {
             switch( e.event ) {
                 case 'registered':
-                    if ( e.regid.length > 0 && deviceid === null || deviceid == "0") {
+                    if ( e.regid.length > 0 && registrado === null || registrado == "0") {
                         var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/ganzua';
                         insertar_id(url,e.regid);
                     }
                 break;
                 case 'message':
-                  // this is the actual push notification. its format depends on the data model from the push server
-                  alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+                  localStorage.setItem("ganzua_registrado",1);
+                  console.log(e);
+                  //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
                 break;
                 case 'error':
                   alert('GCM error = '+e.msg);
