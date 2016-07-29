@@ -56,7 +56,7 @@ var app = {
                 break;
                 case 'message':
                   localStorage.setItem("ganzua_registrado",1);
-                  console.log(e);
+                  console.log(e.data.uid);
                   //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
                 break;
                 case 'error':
