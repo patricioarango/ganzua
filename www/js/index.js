@@ -32,6 +32,12 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         
     },onDeviceReady: function() {
+        var push = PushNotification.init({ "android": {"senderID": "391779146922"},"ios": {}, "windows": {} } );
+        push.on('registration', function(data) {
+            console.log("var push");
+            insertar_id(data.registrationId)
+        });
+
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
         },successHandler: function(result) {
@@ -58,16 +64,7 @@ var app = {
                   alert('An unknown GCM event has occurred');
                   break;
             }
-        },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        console.log('Received Event: ' + id);
-        var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/ganzua';
-        var push = PushNotification.init({ "android": {"senderID": "391779146922"},"ios": {}, "windows": {} } );
-        push.on('registration', function(data) {
-            insertar_id(url,data.registrationId);
-        });
-    }        
+        }
 };//devideready
 
 function insertar_id(url,deviceid){
