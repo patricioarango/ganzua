@@ -33,11 +33,11 @@ var app = {
         
     },onDeviceReady: function() {
         console.log("deviceready");
-        var push = PushNotification.init({ "android": {"senderID": "391779146922"},"ios": {}, "windows": {} } );
+        /*var push = PushNotification.init({ "android": {"senderID": "391779146922"},"ios": {}, "windows": {} } );
         push.on('registration', function(data) {
             console.log("var push");
             insertar_id(data.registrationId)
-        });
+        });*/
 
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
