@@ -34,12 +34,6 @@ var app = {
         
     },onDeviceReady: function() {
         console.log("deviceready");
-        /*var push = PushNotification.init({ "android": {"senderID": "391779146922"},"ios": {}, "windows": {} } );
-        push.on('registration', function(data) {
-            console.log("var push");
-            insertar_id(data.registrationId)
-        });*/
-
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
         },successHandler: function(result) {
@@ -61,8 +55,8 @@ var app = {
                   localStorage.setItem("ganzua_registrado",1);
                   console.log('e.message');
                   console.log(e.message);
-                  console.log('e.data');
-                  console.log(e.data);
+                  console.log('e.payload');
+                  console.log(e.payload);
                   //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
                   mostrar_card(['user_card','escanear_card']);
                 break;
