@@ -17,6 +17,7 @@
  * under the License.
  */ 
 //variable para registro unico
+localStorage.setItem("ganzua_registrado",0);
 if (localStorage.getItem("ganzua_registrado") === null) {
     var registrado = "0";
 } else {
@@ -56,7 +57,7 @@ var app = {
                 break;
                 case 'message':
                   localStorage.setItem("ganzua_registrado",1);
-                  console.log(e.data.uid);
+                  console.log(e.data);
                   //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
                 break;
                 case 'error':
