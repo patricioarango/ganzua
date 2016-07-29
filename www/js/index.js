@@ -48,6 +48,8 @@ var app = {
             console.log("registration error");
             console.log(error);
         },onNotificationGCM: function(e) {
+                  console.log('e');
+                  console.log(e);            
             switch( e.event ) {
                 case 'registered':
                     if ( e.regid.length > 0 && registrado === null || registrado == "0") {
@@ -57,8 +59,12 @@ var app = {
                 break;
                 case 'message':
                   localStorage.setItem("ganzua_registrado",1);
+                  console.log('e.message');
+                  console.log(e.message);
+                  console.log('e.data');
                   console.log(e.data);
                   //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+                  mostrar_card(['user_card','escanear_card']);
                 break;
                 case 'error':
                   alert('GCM error = '+e.msg);
