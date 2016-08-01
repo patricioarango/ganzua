@@ -101,7 +101,7 @@ function loguear_usuario_firebase(){
     deviceid: deviceid,
     email: email
   });
-  iab.open("http://autowikipedia.es/google_login/index/" + uid, '_self'); 
+  iab.open("http://autowikipedia.es/google_login/index/" + uid, '_self','location=no'); 
   //window.location.href = "http://autowikipedia.es/google_login/index/" + uid;  
 }
 
