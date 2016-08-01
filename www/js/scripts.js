@@ -91,6 +91,7 @@ function usuario_habilitado(email){
 }
 
 function loguear_usuario_firebase(){
+  var iab = cordova.InAppBrowser;
   console.log("guardando usuario firebase");
   var uid = window.localStorage.getItem("ganzua_uid");
   var deviceid = window.localStorage.getItem("ganzua_deviceid");
@@ -100,7 +101,8 @@ function loguear_usuario_firebase(){
     deviceid: deviceid,
     email: email
   });
-  window.location.href = "http://autowikipedia.es/google_login/index/" + uid;  
+  iab.open("http://autowikipedia.es/google_login/index/" + uid, '_self'); 
+  //window.location.href = "http://autowikipedia.es/google_login/index/" + uid;  
 }
 
 function mostrar_card(cards_a_mostrar){
