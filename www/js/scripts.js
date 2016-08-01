@@ -18,9 +18,9 @@ function getQrCode(){
       {
           "preferFrontCamera" : true, // iOS and Android
           "showFlipCameraButton" : true, // iOS and Android
-          "prompt" : "Place a barcode inside the scan area", // supported on Android only
+          "prompt" : "Escanea el codigo de barras del sitio", // supported on Android only
           "formats" : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
-          "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+          "orientation" : "landscape" // Android only (portrait|landscape), default unset so it rotates with the device
       }
    );
 }
