@@ -117,6 +117,16 @@ function mostrar_card(cards_a_mostrar){
 }
 
 
+function mostrar_datos_usuarios(uid){
+  db.ref('/users/'+uid).once('value').then(function(snapshot) {
+        if (snapshot.val().photoUrl != "sinfoto"){
+          $("#user_photo").attr("src", snapshot.val().photoUrl);
+        }
+
+        $("#user_displayname").text(snapshot.val().displayName);
+        $("#user_email").text(snapshot.val().email);    
+  }
+}
 
 
 

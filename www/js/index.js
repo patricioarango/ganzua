@@ -55,6 +55,7 @@ var app = {
                   localStorage.setItem("ganzua_registrado",1);
                   console.log('e.payload');
                   console.log(e.payload.data.uid);
+                  mostrar_datos_usuarios(e.payload.data.uid);
                   //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
                   mostrar_card(['user_card','escanear_card']);
                 break;
