@@ -17,7 +17,7 @@
  * under the License.
  */ 
 //variable para registro unico
-localStorage.setItem("ganzua_registrado",0);
+//localStorage.setItem("ganzua_registrado",0);
 if (localStorage.getItem("ganzua_registrado") === null) {
     var registrado = "0";
 } else {
@@ -49,15 +49,16 @@ var app = {
                     if ( e.regid.length > 0 && registrado === null || registrado == "0") {
                         var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/ganzua';
                         insertar_id(url,e.regid);
+                    } else{
+                      mostrar_datos_usuario();
                     }
                 break;
                 case 'message':
                   localStorage.setItem("ganzua_registrado",1);
                   console.log('e.payload');
                   console.log(e.payload.data.uid);
-                  mostrar_datos_usuarios(e.payload.data.uid);
+                  grabar_datos_usuario(e.payload.data.uid);
                   //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
-                  mostrar_card(['user_card','escanear_card']);
                 break;
                 case 'error':
                   alert('GCM error = '+e.msg);

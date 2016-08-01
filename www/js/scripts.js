@@ -20,7 +20,7 @@ function getQrCode(){
           "showFlipCameraButton" : true, // iOS and Android
           "prompt" : "Escanea el codigo de barras del sitio", // supported on Android only
           "formats" : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
-          "orientation" : "landscape" // Android only (portrait|landscape), default unset so it rotates with the device
+          "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
       }
    );
 }
@@ -118,16 +118,26 @@ function mostrar_card(cards_a_mostrar){
   });  
 }
 
-
-function mostrar_datos_usuarios(uid){
+function grabar_datos_usuario(uid){
   db.ref('/users/'+uid).once('value').then(function(snapshot) {
-        if (snapshot.val().photoUrl != "sinfoto"){
-          $("#user_photo").attr("src", snapshot.val().photoUrl);
-        }
+        localStorage.setItem('ganzua_registrado_displayName',snapshot.val().displayName);
+        localStorage.setItem('ganzua_registrado_uid',uid);
+        localStorage.setItem('ganzua_registrado_foto',snapshot.val().photoUrl);
+        localStorage.setItem('ganzua_registrado_email',snapshot.val().email);
+        mostrar_datos_usuario();
+  });  
+}
 
-        $("#user_displayname").text(snapshot.val().displayName);
-        $("#user_email").text(snapshot.val().email);    
-  });
+function mostrar_datos_usuario(){
+  mostrar_card(['user_card','escanear_card']);
+  $("#user_photo").attr("src", localStorage.getItem('ganzua_registrado_foto'));
+  $("#user_email").text(localStorage.getItem('ganzua_registrado_email'));
+  $("#user_displayname").text(localStorage.getItem('ganzua_registrado_displayName'));
+  mostrar_datos_escaneos();
+}
+
+function mostrar_datos_escaneos(){
+  
 }
 
 
