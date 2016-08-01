@@ -125,7 +125,7 @@ function mostrar_datos_usuarios(uid){
 
         $("#user_displayname").text(snapshot.val().displayName);
         $("#user_email").text(snapshot.val().email);    
-  }
+  });
 }
 
 
