@@ -4,7 +4,6 @@ $("#escanear").on('click',function(e) {
 });
 
 function getQrCode(){
-        console.log("aca");
         cordova.plugins.barcodeScanner.scan(
       function (result) {
           codigo_escaneado(result.text);
@@ -138,7 +137,9 @@ function grabar_datos_usuario(uid){
 
 function mostrar_datos_usuario(){
   mostrar_card(['user_card']);
-  $("#user_photo").attr("src", localStorage.getItem('ganzua_registrado_foto'));
+  if (localStorage.getItem('ganzua_registrado_foto') != "sinfoto"){
+    $("#user_photo").attr("src", localStorage.getItem('ganzua_registrado_foto'));
+  }
   $("#user_email").text(localStorage.getItem('ganzua_registrado_email'));
   $("#user_displayname").text(localStorage.getItem('ganzua_registrado_displayName'));
   estado_logueos();
@@ -157,7 +158,7 @@ function guardar_datos_computadora(computerid){
 
 function codigo_escaneado(computerid){
   guardar_datos_computadora(computerid);
-  db.ref("computersandusers").push({
+  db.ref("/computersandusers").push({
     computerid: computerid,
     userid: localStorage.getItem('ganzua_registrado_uid'),
     openthegates: true
