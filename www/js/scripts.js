@@ -147,6 +147,7 @@ function mostrar_datos_usuario(){
 
 function guardar_datos_computadora(computerid){
   db.ref('/computers/'+computerid).once('value').then(function(snapshot) {
+    localStorage.setItem('ganzua_compu_platform',snapshot.val().platform);
     localStorage.setItem('ganzua_compu_browser',snapshot.val().browser);
     localStorage.setItem('ganzua_compu_city',snapshot.val().city);
     localStorage.setItem('ganzua_compu_region',snapshot.val().region);
@@ -173,7 +174,7 @@ function mostrar_card_computadora(){
     $("#city").text(localStorage.getItem('ganzua_compu_city'));
     $("#region").text(localStorage.getItem('ganzua_compu_region'));
     $("#country").text(localStorage.getItem('ganzua_compu_country'));
-    var fecha = new Date(localStorage.getItem('ganzua_compu_date')); 
+    var fecha = new Date(localStorage.getItem('ganzua_compu_date')).toUTCString(); 
     $("#fecha").text(fecha); 
 }
 
