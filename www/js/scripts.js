@@ -168,23 +168,21 @@ function codigo_escaneado(computerid){
 }
 
 function mostrar_card_computadora(){
-  mostrar_card(['devices_card']);
+  mostrar_card(['user_card,devices_card']);
     $("#platform").text(localStorage.getItem('ganzua_compu_platform'));
     $("#browser").text(localStorage.getItem('ganzua_compu_browser'));
     $("#city").text(localStorage.getItem('ganzua_compu_city'));
     $("#region").text(localStorage.getItem('ganzua_compu_region'));
     $("#country").text(localStorage.getItem('ganzua_compu_country'));
-    var fecha = new Date(localStorage.getItem('ganzua_compu_date')).toUTCString(); 
+    var fecha = new Date(localStorage.getItem('ganzua_compu_date') * 1000).toUTCString(); 
     $("#fecha").text(fecha); 
 }
 
 function estado_logueos(){
   var estado_logueos = localStorage.getItem('ganzua_estado_logueado');
   if (estado_logueos > 0){
-    mostrar_datos_usuario();
     mostrar_card_computadora();
   } else {
-    mostrar_card(['user_card']);
-    mostrar_card(['escanear_card']);
+    mostrar_card(['user_card,escanear_card']);
   }
 }
