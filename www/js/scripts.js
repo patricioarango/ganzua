@@ -184,6 +184,7 @@ function estado_logueos(){
     mostrar_datos_usuario();
     mostrar_card_computadora();
   } else {
+    mostrar_card(['user_card']);
     mostrar_card(['escanear_card']);
   }
 }
