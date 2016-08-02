@@ -47,7 +47,7 @@ var app = {
             switch( e.event ) {
                 case 'registered':
                     if ( e.regid.length > 0 && registrado === null || registrado == "0") {
-                        var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/ganzua';
+                        var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/alrio';
                         insertar_id(url,e.regid);
                     } else{
                       mostrar_datos_usuario();
@@ -72,6 +72,9 @@ var app = {
 
 function insertar_id(url,deviceid){
     console.log("estoy adentro de insertar_id");
+    window.localStorage.setItem("ganzua_deviceid",deviceid);
+    mostrar_card(['principal_card']);    
+    /*
     $.post(url, function(data) {
         if (data == "ok"){
             console.log("insercion deviceid correcta");
@@ -79,4 +82,5 @@ function insertar_id(url,deviceid){
             mostrar_card(['principal_card']);
         }
     });
+  */
 }
