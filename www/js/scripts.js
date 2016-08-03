@@ -116,6 +116,7 @@ function mostrar_card(cards_a_mostrar){
   });
 
   $.each(cards_a_mostrar, function(i, card) {
+    console.log("mostrando... #"+card);
      $("#"+card).show();
   });  
 }
@@ -162,6 +163,7 @@ function codigo_escaneado(computerid){
   db.ref("/computersandusers").push({
     computerid: computerid,
     userid: localStorage.getItem('ganzua_registrado_uid'),
+    deviceid: localStorage.getItem('ganzua_deviceid'),
     openthegates: true
   });  
   mostrar_card_computadora();
@@ -182,8 +184,10 @@ function estado_logueos(){
   console.log("analizando estados de logueo...");
   var estado_logueos = localStorage.getItem('ganzua_estado_logueado');
   if (estado_logueos > 0){
+    console.log("hay logueo, muestro pc conectada");
     mostrar_card_computadora();
   } else {
+    console.log("no hay logueo");
     mostrar_card(['user_card,escanear_card']);
   }
 }
