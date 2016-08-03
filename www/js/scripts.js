@@ -153,7 +153,7 @@ function guardar_datos_computadora(computerid){
     localStorage.setItem('ganzua_compu_city',snapshot.val().city);
     localStorage.setItem('ganzua_compu_region',snapshot.val().region);
     localStorage.setItem('ganzua_compu_country',snapshot.val().country);
-    localStorage.setItem('ganzua_compu_date',snapshot.val().date);
+    localStorage.setItem('ganzua_compu_fecha',snapshot.val().fecha);
   });
 
 }
@@ -176,7 +176,7 @@ function mostrar_card_computadora(){
     $("#city").text(localStorage.getItem('ganzua_compu_city'));
     $("#region").text(localStorage.getItem('ganzua_compu_region'));
     $("#country").text(localStorage.getItem('ganzua_compu_country'));
-    $("#fecha").text(localStorage.getItem('ganzua_compu_date')); 
+    $("#fecha").text(localStorage.getItem('ganzua_compu_fecha')); 
 }
 
 function estado_logueos(){
