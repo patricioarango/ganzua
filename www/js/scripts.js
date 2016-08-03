@@ -170,7 +170,7 @@ function codigo_escaneado(computerid){
 }
 
 function mostrar_card_computadora(){
-  mostrar_card(['user_card,devices_card']);
+  mostrar_card(['user_card','devices_card']);
     $("#platform").text(localStorage.getItem('ganzua_compu_platform'));
     $("#browser").text(localStorage.getItem('ganzua_compu_browser'));
     $("#city").text(localStorage.getItem('ganzua_compu_city'));
@@ -188,6 +188,6 @@ function estado_logueos(){
     mostrar_card_computadora();
   } else {
     console.log("no hay logueo");
-    mostrar_card(['user_card,escanear_card']);
+    mostrar_card(['user_card','escanear_card']);
   }
 }
