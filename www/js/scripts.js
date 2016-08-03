@@ -176,8 +176,7 @@ function mostrar_card_computadora(){
     $("#city").text(localStorage.getItem('ganzua_compu_city'));
     $("#region").text(localStorage.getItem('ganzua_compu_region'));
     $("#country").text(localStorage.getItem('ganzua_compu_country'));
-    var fecha = new Date(localStorage.getItem('ganzua_compu_date') * 1000).toUTCString(); 
-    $("#fecha").text(fecha); 
+    $("#fecha").text(localStorage.getItem('ganzua_compu_date')); 
 }
 
 function estado_logueos(){
