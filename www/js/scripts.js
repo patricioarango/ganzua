@@ -179,6 +179,7 @@ function mostrar_card_computadora(){
 }
 
 function estado_logueos(){
+  console.log("analizando estados de logueo...");
   var estado_logueos = localStorage.getItem('ganzua_estado_logueado');
   if (estado_logueos > 0){
     mostrar_card_computadora();
