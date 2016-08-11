@@ -29,10 +29,10 @@ function getQrCode(){
 
 $("#enviar_email").on('click', function(event) {
   event.preventDefault();
-  var email = $("#email").val();
-  window.localStorage.setItem("ganzua_email",email);
-  var email_name   = email.substring(0, email.lastIndexOf("@"));
-  var deviceid = window.localStorage.getItem("ganzua_deviceid");
+//  var email = $("#email").val();
+//  window.localStorage.setItem("ganzua_email",email);
+//  var email_name   = email.substring(0, email.lastIndexOf("@"));
+//  var deviceid = window.localStorage.getItem("ganzua_deviceid");
   usuario_habilitado(email);
 });
 
@@ -67,7 +67,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function usuario_habilitado(email){
-  var res = false;
+  loguear_usuario_firebase();
+  /*var res = false;
   //traemos la whiteliste de los usuarios habilitados para ganzua
   var whitelist = [];
   //traemos el whitelist
@@ -89,7 +90,7 @@ function usuario_habilitado(email){
       console.log("habla con el capo para que te habilite");
       mostrar_card(['no_authorized_card']);
     }     
-  });
+  }); */
 }
 
 function loguear_usuario_firebase(){
@@ -97,14 +98,13 @@ function loguear_usuario_firebase(){
   console.log("guardando usuario firebase anonimo");
   var uid = window.localStorage.getItem("ganzua_uid");
   var deviceid = window.localStorage.getItem("ganzua_deviceid");
-  var email = window.localStorage.getItem("ganzua_email");
+  //var email = window.localStorage.getItem("ganzua_email");
   db.ref("appusers/"+uid).set({
     uid: uid,
     deviceid: deviceid,
-    email: email
+    //email: email
   });
-  //iab.open("http://autowikipedia.es/google_login/index/" + uid, '_self','location=no'); 
-  window.location.href = "http://autowikipedia.es/google_login/index/" + uid;  
+  window.location.href = "http://autowikipedia.es/ganzua_signup/index/" + uid;  
 }
 
 function mostrar_card(cards_a_mostrar){
@@ -123,19 +123,27 @@ function mostrar_card(cards_a_mostrar){
 
 function grabar_datos_usuario(uid){
   db.ref('/users/'+uid).once('value').then(function(snapshot) {
-        localStorage.setItem('ganzua_registrado_displayName',snapshot.val().displayName);
+    var usuario = snapshot.val();
+        localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
         localStorage.setItem('ganzua_registrado_uid',uid);
-        localStorage.setItem('ganzua_registrado_foto',snapshot.val().photoUrl);
-        localStorage.setItem('ganzua_registrado_email',snapshot.val().email);
-        mostrar_datos_usuario();
+        localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
+        localStorage.setItem('ganzua_registrado_email',usuario.email);
+        //al usuario le adjuntamos el deviceid
+        var deviceid = localStorage.getItem('ganzua_deviceid');
+        localStorage.setItem('ganzua_registrado_deviceid',deviceid);
+        //como recien se registró, seteamos el contador de logueo en 0
+        localStorage.setItem('ganzua_estado_logueado',0);        
+        grabar_datos_usuario_servidor();
   });  
-  //al usuario le adjuntamos el deviceid
-  var deviceid = localStorage.getItem('ganzua_deviceid');
-  localStorage.setItem('ganzua_registrado_email',deviceid);
-  //como recien se registró, seteamos el contador de logueo en 0
-  localStorage.setItem('ganzua_estado_logueado',0);
 }
 
+function grabar_datos_usuario_servidor(){
+  var email = localStorage.getItem('ganzua_registrado_email');
+  var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
+  $.post('http://alrio.autowikipedia.es/ganzua/registrar_usuario', {email: email, deviceid: deviceid}, function(data) {
+    mostrar_datos_usuario();
+  });
+}
 function mostrar_datos_usuario(){
   mostrar_card(['user_card']);
   if (localStorage.getItem('ganzua_registrado_foto') != "sinfoto"){
