@@ -33,7 +33,8 @@ $("#enviar_email").on('click', function(event) {
 //  window.localStorage.setItem("ganzua_email",email);
 //  var email_name   = email.substring(0, email.lastIndexOf("@"));
 //  var deviceid = window.localStorage.getItem("ganzua_deviceid");
-  usuario_habilitado(email);
+//  usuario_habilitado(email);
+  usuario_habilitado();
 });
 
 // Initialize Firebase
@@ -66,7 +67,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   // ...
 });
 
-function usuario_habilitado(email){
+function usuario_habilitado(){
   loguear_usuario_firebase();
   /*var res = false;
   //traemos la whiteliste de los usuarios habilitados para ganzua
