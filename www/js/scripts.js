@@ -175,9 +175,18 @@ function codigo_escaneado(computerid){
     deviceid: localStorage.getItem('ganzua_deviceid'),
     openthegates: true
   });  
-  mostrar_card_computadora();
+  openthegates(computerid);
 }
 
+function openthegates(computerid){
+  var email = localStorage.getItem('ganzua_registrado_email');
+  var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
+  var computerid = computerid;  
+  $.post('http://alrio.autowikipedia.es/Ganzua/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(data) {
+    mostrar_card_computadora();
+  });
+
+}
 function mostrar_card_computadora(){
   mostrar_card(['user_card','devices_card']);
     $("#platform").text(localStorage.getItem('ganzua_compu_platform'));
