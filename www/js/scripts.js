@@ -141,7 +141,9 @@ function grabar_datos_usuario(uid){
 function grabar_datos_usuario_servidor(){
   var email = localStorage.getItem('ganzua_registrado_email');
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
-  $.post('http://alrio.autowikipedia.es/ganzua/registrar_usuario', {email: email, deviceid: deviceid}, function(data) {
+  $.post('http://alrio.autowikipedia.es/Ganzua/registrar_usuario', {email: email, deviceid: deviceid}, function(data) {
+    console.log(data);
+    console.log("respuesta registrar usuario db");
     mostrar_datos_usuario();
   });
 }
