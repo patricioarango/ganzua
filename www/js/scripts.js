@@ -184,7 +184,7 @@ function openthegates(computerid){
   var email = localStorage.getItem('ganzua_registrado_email');
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
   var computerid = computerid;  
-  $.post('http://alrio.autowikipedia.es/login/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(data) {
+  $.post('http://alrio.autowikipedia.es/acl/acl_login/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(data) {
     //mostrar_card_computadora();
     console.log(data);
   });
