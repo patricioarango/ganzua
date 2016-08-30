@@ -171,12 +171,6 @@ function guardar_datos_computadora(computerid){
 
 function codigo_escaneado(computerid){
   guardar_datos_computadora(computerid);
-  db.ref("/computersandusers").push({
-    computerid: computerid,
-    userid: localStorage.getItem('ganzua_registrado_uid'),
-    deviceid: localStorage.getItem('ganzua_deviceid'),
-    openthegates: true
-  });  
   openthegates(computerid);
 }
 
@@ -185,11 +179,24 @@ function openthegates(computerid){
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
   var computerid = computerid;  
   $.post('http://alrio.autowikipedia.es/ganzua/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(data) {
-    //mostrar_card_computadora();
-    console.log(data);
+    if (data == "ok"){
+      mostrar_card_computadora();
+      db.ref("/computersandusers").push({
+        computerid: computerid,
+        userid: localStorage.getItem('ganzua_registrado_uid'),
+        deviceid: localStorage.getItem('ganzua_deviceid'),
+        openthegates: true
+      });  
+    }
+    
   });
 
 }
+
+function activar_openthegates(){
+
+}
+
 function mostrar_card_computadora(){
   mostrar_card(['user_card','devices_card']);
     $("#platform").text(localStorage.getItem('ganzua_compu_platform'));
