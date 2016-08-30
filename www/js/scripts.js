@@ -180,20 +180,17 @@ function openthegates(computerid){
   var computerid = computerid;  
   $.post('http://alrio.autowikipedia.es/ganzua/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(data) {
     if (data == "ok"){
+      console.log("usuario data ok en servidor...");
       mostrar_card_computadora();
-      db.ref("/computersandusers").push({
+      /*db.ref("/computersandusers").push({
         computerid: computerid,
         userid: localStorage.getItem('ganzua_registrado_uid'),
         deviceid: localStorage.getItem('ganzua_deviceid'),
         openthegates: true
-      });  
+      });  */
     }
     
   });
-
-}
-
-function activar_openthegates(){
 
 }
 
