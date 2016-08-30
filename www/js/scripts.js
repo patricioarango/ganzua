@@ -185,7 +185,8 @@ function openthegates(computerid){
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
   var computerid = computerid;  
   $.post('http://alrio.autowikipedia.es/Ganzua/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(data) {
-    mostrar_card_computadora();
+    //mostrar_card_computadora();
+    console.log(data);
   });
 
 }
