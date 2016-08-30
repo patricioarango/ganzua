@@ -73,7 +73,7 @@ function insertar_id(url,deviceid){
     console.log("estoy adentro de insertar_id");
     window.localStorage.setItem("ganzua_deviceid",deviceid);
     mostrar_card(['principal_card']);    
-    /*
+    
     $.post(url, function(data) {
         if (data == "ok"){
             console.log("insercion deviceid correcta");
@@ -81,5 +81,4 @@ function insertar_id(url,deviceid){
             mostrar_card(['principal_card']);
         }
     });
-  */
 }

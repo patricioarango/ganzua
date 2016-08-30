@@ -13,6 +13,7 @@
     <preference name="permissions" value="none" />
     <preference name="android-build-tool" value="gradle" />
     <preference name="orientation" value="portrait" />
+    <preference name="permissions" value="none" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2" />
