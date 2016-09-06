@@ -177,8 +177,8 @@ function codigo_escaneado(computerid){
     localStorage.setItem('ganzua_compu_region',snapshot.val().region);
     localStorage.setItem('ganzua_compu_country',snapshot.val().country);
     localStorage.setItem('ganzua_compu_fecha',snapshot.val().fecha);
+    openthegates(computerid);
   });
-  openthegates(computerid);
 }
 
 function openthegates(computerid){
