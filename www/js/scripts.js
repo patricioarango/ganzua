@@ -197,6 +197,7 @@ function openthegates(computerid){
         openthegates: true
       });  
     } else{
+      console.log(data);
       console.log("datos from server nok");
     }
     
