@@ -157,7 +157,7 @@ function mostrar_datos_usuario(){
   estado_logueos();
 }
 
-function guardar_datos_computadora(computerid){
+/*function guardar_datos_computadora(computerid){
   db.ref('/computers/'+computerid).once('value').then(function(snapshot) {
     localStorage.setItem('ganzua_compu_platform',snapshot.val().platform);
     localStorage.setItem('ganzua_compu_browser',snapshot.val().browser);
@@ -167,10 +167,17 @@ function guardar_datos_computadora(computerid){
     localStorage.setItem('ganzua_compu_fecha',snapshot.val().fecha);
   });
 
-}
+}*/
 
 function codigo_escaneado(computerid){
-  guardar_datos_computadora(computerid);
+    db.ref('/computers/'+computerid).once('value').then(function(snapshot) {
+    localStorage.setItem('ganzua_compu_platform',snapshot.val().platform);
+    localStorage.setItem('ganzua_compu_browser',snapshot.val().browser);
+    localStorage.setItem('ganzua_compu_city',snapshot.val().city);
+    localStorage.setItem('ganzua_compu_region',snapshot.val().region);
+    localStorage.setItem('ganzua_compu_country',snapshot.val().country);
+    localStorage.setItem('ganzua_compu_fecha',snapshot.val().fecha);
+  });
   openthegates(computerid);
 }
 
@@ -182,12 +189,12 @@ function openthegates(computerid){
     if (data == "ok"){
       console.log("usuario data ok en servidor...");
       mostrar_card_computadora();
-      /*db.ref("/computersandusers").push({
+      db.ref("/computersandusers").push({
         computerid: computerid,
         userid: localStorage.getItem('ganzua_registrado_uid'),
         deviceid: localStorage.getItem('ganzua_deviceid'),
         openthegates: true
-      });  */
+      });  
     }
     
   });
