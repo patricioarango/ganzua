@@ -182,6 +182,7 @@ function codigo_escaneado(computerid){
 }
 
 function openthegates(computerid){
+  console.log("openthegates");
   var email = localStorage.getItem('ganzua_registrado_email');
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
   var computerid = computerid;  
@@ -195,6 +196,8 @@ function openthegates(computerid){
         deviceid: localStorage.getItem('ganzua_deviceid'),
         openthegates: true
       });  
+    } else{
+      console.log("datos from server nok");
     }
     
   });
