@@ -186,8 +186,10 @@ function openthegates(computerid){
   var email = localStorage.getItem('ganzua_registrado_email');
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
   var computerid = computerid;  
-  $.post('http://alrio.autowikipedia.es/ganzua/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(data) {
-    if (data == "ok"){
+  $.post('http://alrio.autowikipedia.es/ganzua/firebase_login', {email: email, deviceid: deviceid,computerid: computerid}, function(resp_server) {
+    console.log("aca imprimer respuesta servidor");
+    console.log(resp_server);
+   /* if (data == "ok"){
       console.log("usuario data ok en servidor...");
       mostrar_card_computadora();
       db.ref("/computersandusers").push({
@@ -199,7 +201,7 @@ function openthegates(computerid){
     } else{
       console.log(data);
       console.log("datos from server nok");
-    }
+    }*/
     
   });
 
