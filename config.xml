@@ -30,8 +30,9 @@
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
-    <plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" />
-    <plugin name="net.roughshod.plugins.barcodescanner" spec="3.0.0" source="pgb" />
+
+    <plugin spec="https://github.com/phonegap/phonegap-plugin-barcodescanner.git" source="git" />
+    <plugin spec="https://github.com/patricioarango/ganzua_firebase_auth.git" source="git" />
     <icon src="icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />

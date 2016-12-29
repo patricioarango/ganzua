@@ -33,52 +33,14 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         
     },onDeviceReady: function() {
-        console.log("deviceready");
-        var pushNotification = window.plugins.pushNotification;
-        pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"391779146922","ecb":"app.onNotificationGCM"});
-        },successHandler: function(result) {
-            console.log('registration Callback Success! Result = '+result);
-        },errorHandler:function(error) {
-            console.log("registration error");
-            console.log(error);
-        },onNotificationGCM: function(e) {
-            switch( e.event ) {
-                case 'registered':
-                    if ( e.regid.length > 0 && registrado === null || registrado == "0") {
-                        var url = 'http://autowikipedia.es/phonegap/insert_registerid/' + e.regid + '/alrio';
-                        insertar_id(url,e.regid);
-                    } else{
-                      mostrar_datos_usuario();
-                    }
-                break;
-                case 'message':
-                  console.log("llego el mensaje");
-                  localStorage.setItem("ganzua_registrado",1);
-                  console.log('e.payload');
-                  console.log(e.payload.data.uid);
-                  grabar_datos_usuario(e.payload.data.uid);
-                  //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
-                break;
-                case 'error':
-                  alert('GCM error = '+e.msg);
-                break;
-                default:
-                  alert('An unknown GCM event has occurred');
-                  break;
-            }
-        }
-};//devideready
+        window.FirebaseAuthPlugin.signIn(function(token) {
+                // save this server-side and use it to push notifications to this device
+                console.log(token);
+                
+              },function(error) {
+                         
+                console.error(error);
+              });
+    }
+};//app
 
-function insertar_id(url,deviceid){
-    console.log("estoy adentro de insertar_id");
-    window.localStorage.setItem("ganzua_deviceid",deviceid);
-    mostrar_card(['principal_card']);    
-    
-    $.post(url, function(data) {
-        if (data == "ok"){
-            console.log("insercion deviceid correcta");
-            window.localStorage.setItem("ganzua_deviceid",deviceid);
-            mostrar_card(['principal_card']);
-        }
-    });
-}
