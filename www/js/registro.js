@@ -53,6 +53,11 @@ var app = {
         window.FirebasePlugin.onNotificationOpen(function(notification) {
           console.log(notification);
           console.log("aca recibimos la notificacion");
+                            console.log("llego el mensaje");
+                  localStorage.setItem("ganzua_registrado",1);
+                  console.log('e.payload');
+                  console.log(e.payload.data.uid);
+                  grabar_datos_usuario(e.payload.data.uid);
         }, function(error) {
           console.error(error);
         });
