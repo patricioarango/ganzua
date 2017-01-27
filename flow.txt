@@ -1,0 +1,5 @@
+Registro:
+
+Cuando abrimos la app por primera vez, no sabemos quién es el usuario, por eso creamos un usuario anónimo. También obtenemos el id para enviar mensajes y lo guardamos a ese usuario. 
+
+Cuando vamos a la web para que el usuario se loguee con su email, ahí juntamos todos los datos.

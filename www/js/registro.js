@@ -52,15 +52,12 @@ var app = {
 
         window.FirebasePlugin.onNotificationOpen(function(notification) {
           console.log(notification);
+          console.log("aca recibimos la notificacion");
         }, function(error) {
           console.error(error);
         });
+    }//deviceready    
 };//app
-
-function guardar_token(token){
-    //var token = window.localStorage.getItem("fire_msg_token"); 
-   db.ref('/tokens/tokenid_'+token).set(token);  
-}
 
 function insertar_id(url,deviceid){
     console.log("estoy adentro de insertar_id");
@@ -89,3 +86,49 @@ function mostrar_card(cards_a_mostrar){
      $("#"+card).show();
   });  
 }
+
+$("#enviar_email").on('click', function(event) {
+  event.preventDefault();
+    verificar_usuario();
+});
+
+function verificar_usuario(){
+  console.log("guardando usuario firebase anonimo");
+  var uid = window.localStorage.getItem("ganzua_uid");
+  var deviceid = window.localStorage.getItem("ganzua_fire_msg_token");
+  db.ref("appusers/"+uid).set({
+    uid: uid,
+    deviceid: deviceid,
+    //email: email
+  });
+  window.location.href = "http://autowikipedia.es/ganzua_signup/index/" + uid;  
+}
+
+var config = {
+  apiKey: "AIzaSyBvt5tGBZb3uaqZnjLmAOWFPtJcGd1nSGo",
+  authDomain: "ganzua-eea1d.firebaseapp.com",
+  databaseURL: "https://ganzua-eea1d.firebaseio.com",
+  storageBucket: "ganzua-eea1d.appspot.com",
+};
+  var appfire = firebase.initializeApp(config);
+  var db = appfire.database();
+
+appfire.auth().signInAnonymously().catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+  console.log("logueando usuario anonimo");
+  if (user) {
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    window.localStorage.setItem("ganzua_uid",uid);
+  } else {
+    // User is signed out.
+    // ...
+  }
+  // ...
+});
