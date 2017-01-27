@@ -2,4 +2,6 @@ Registro:
 
 Cuando abrimos la app por primera vez, no sabemos quién es el usuario, por eso creamos un usuario anónimo. También obtenemos el id para enviar mensajes y lo guardamos a ese usuario. 
 
-Cuando vamos a la web para que el usuario se loguee con su email, ahí juntamos todos los datos.
+Luego vamos a la web (autowikipedia.es/ganzua_signup) para que el usuario se loguee con su email. Esto se hace fuera de la app porque Phonegap aún no tiene soporte para Firebase Auth.
+
+-- falta que si el logueo en google es correcto, pero no existe en la whitelist, ver qué hacer en ese caso.

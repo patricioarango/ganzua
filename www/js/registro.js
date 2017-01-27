@@ -28,7 +28,7 @@ var app = {
     },onDeviceReady: function() {
         if (localStorage.getItem("ganzua_registrado") === null) {
             var registrado = "0";
-            mostrar_card("principal_card");
+             mostrar_card(['principal_card']);
         } else {
             var registrado = localStorage.getItem("ganzua_registrado");
         }
