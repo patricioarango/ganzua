@@ -50,17 +50,18 @@ var app = {
                 console.error(error);
               });
 
-        window.FirebasePlugin.onNotificationOpen(function(notification) {
-          console.log(notification);
-          console.log("aca recibimos la notificacion");
-                            console.log("llego el mensaje");
-                  localStorage.setItem("ganzua_registrado",1);
-                  console.log('e.payload');
-                  console.log(e.payload.data.uid);
-                  grabar_datos_usuario(e.payload.data.uid);
-        }, function(error) {
-          console.error(error);
-        });
+            //aca manejamos la notificacion post logueo en google
+            window.FirebasePlugin.onNotificationOpen(function(notification) {
+              console.log(notification);
+              console.log("aca recibimos la notificacion");
+              console.log("llego el mensaje");
+              localStorage.setItem("ganzua_registrado",1);
+              console.log('e.payload');
+              console.log(notification.data.uid);
+              certificar_usuario(notification.data.uid);
+            }, function(error) {
+              console.error(error);
+            });
     }//deviceready    
 };//app
 
@@ -101,7 +102,7 @@ function verificar_usuario(){
   console.log("guardando usuario firebase anonimo");
   var uid = window.localStorage.getItem("ganzua_uid");
   var deviceid = window.localStorage.getItem("ganzua_fire_msg_token");
-  db.ref("appusers/"+uid).set({
+  db.ref("usuarios_anonimos/"+uid).set({
     uid: uid,
     deviceid: deviceid,
     //email: email
@@ -137,3 +138,19 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
   // ...
 });
+
+function certificar_usuario(uid){
+  db.ref('/usuarios_registrados/'+uid).once('value').then(function(snapshot) {
+    var usuario = snapshot.val();
+        localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
+        localStorage.setItem('ganzua_registrado_uid',uid);
+        localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
+        localStorage.setItem('ganzua_registrado_email',usuario.email);
+        //al usuario le adjuntamos el deviceid
+        var deviceid = localStorage.getItem('ganzua_deviceid');
+        localStorage.setItem('ganzua_registrado_deviceid',deviceid);
+        //como recien se registró, seteamos el contador de logueo en 0
+        localStorage.setItem('ganzua_estado_logueado',0);        
+        grabar_datos_usuario_servidor();
+  });  
+}
