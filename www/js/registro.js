@@ -107,7 +107,7 @@ function verificar_usuario(){
     deviceid: deviceid,
     //email: email
   });
-  window.location.href = "http://autowikipedia.es/ganzua_signup/index/" + uid;  
+  window.location.href = "http://autowikipedia.es/ganzua_signup/pre_certificacion_usuario/" + uid;  
 }
 
 var config = {
