@@ -132,7 +132,7 @@ function certificar_usuario(email_domain){
   db.ref('/usuarios_registrados/'+email_domain).once('value').then(function(snapshot) {
     var usuario = snapshot.val();
         localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
-        localStorage.setItem('ganzua_registrado_uid',usuario.uid);
+        localStorage.setItem('ganzua_registrado_google_id',usuario.google_id);
         localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
         localStorage.setItem('ganzua_registrado_email',usuario.email);
         localStorage.setItem('ganzua_registrado_email_domain',email_domain);
