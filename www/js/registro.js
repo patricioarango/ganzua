@@ -60,6 +60,7 @@ var app = {
               console.log(notification.subtitle);
               console.log("notification.email_domain");
               console.log(notification.email_domain);
+              certificar_usuario(email_domain);
               localStorage.setItem("ganzua_registrado",1);
             }, function(error) {
               console.error(error);
@@ -131,7 +132,7 @@ function certificar_usuario(email_domain){
   db.ref('/usuarios_registrados/'+email_domain).once('value').then(function(snapshot) {
     var usuario = snapshot.val();
         localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
-        localStorage.setItem('ganzua_registrado_uid',uid);
+        localStorage.setItem('ganzua_registrado_uid',usuario.uid);
         localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
         localStorage.setItem('ganzua_registrado_email',usuario.email);
         localStorage.setItem('ganzua_registrado_email_domain',email_domain);
