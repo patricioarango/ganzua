@@ -56,6 +56,10 @@ var app = {
             //aca manejamos la notificacion post logueo en google
             window.FirebasePlugin.onNotificationOpen(function(notification) {
               console.log(notification);
+              console.log("notification.subtitle");
+              console.log(notification.subtitle);
+              console.log("notification.email_domain");
+              console.log(notification.email_domain);
               localStorage.setItem("ganzua_registrado",1);
               
               console.log("notification.data.email_domain");
