@@ -27,13 +27,13 @@ var app = {
         
     },onDeviceReady: function() {
         if (localStorage.getItem("ganzua_registrado") === null) {
-            var registrado = "0";
+            var registrado = 0;
              mostrar_card(['principal_card']);
         } else {
             var registrado = localStorage.getItem("ganzua_registrado");
         }
 
-        if (registrado > 0) {
+        if (registrado == 0) {
         //firebase cloud notification 
         window.FirebasePlugin.onTokenRefresh(function(token) {
                 // save this server-side and use it to push notifications to this device
@@ -67,20 +67,6 @@ var app = {
             });
     }//deviceready    
 };//app
-
-function insertar_id(url,deviceid){
-    console.log("estoy adentro de insertar_id");
-    window.localStorage.setItem("ganzua_deviceid",deviceid);
-    mostrar_card(['principal_card']);    
-    
-    $.post(url, function(data) {
-        if (data == "ok"){
-            console.log("insercion deviceid correcta");
-            window.localStorage.setItem("ganzua_deviceid",deviceid);
-            mostrar_card(['principal_card']);
-        }
-    });
-}
 
 function mostrar_card(cards_a_mostrar){
   $("#loading").hide();
