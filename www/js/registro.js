@@ -96,7 +96,8 @@ function verificar_usuario(){
     deviceid: deviceid,
     //email: email
   });
-  window.location.href = "http://autowikipedia.es/ganzua_signup/pre_certificacion_usuario/" + uid;  
+  window.location.href = "http://autowikipedia.es/ganzua_signup/pre_certificacion_usuario/" + uid;
+  navigator.app.exitApp();  
 }
 
 var config = {
@@ -129,6 +130,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function certificar_usuario(email_domain){
+  console.log("certificar_usuario");
   db.ref('/usuarios_registrados/'+email_domain).once('value').then(function(snapshot) {
     var usuario = snapshot.val();
         localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
