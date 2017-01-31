@@ -122,41 +122,6 @@ function mostrar_card(cards_a_mostrar){
   });  
 }
 
-function grabar_datos_usuario(uid){
-  db.ref('/users/'+uid).once('value').then(function(snapshot) {
-    var usuario = snapshot.val();
-        localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
-        localStorage.setItem('ganzua_registrado_uid',uid);
-        localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
-        localStorage.setItem('ganzua_registrado_email',usuario.email);
-        //al usuario le adjuntamos el deviceid
-        var deviceid = localStorage.getItem('ganzua_deviceid');
-        localStorage.setItem('ganzua_registrado_deviceid',deviceid);
-        //como recien se registró, seteamos el contador de logueo en 0
-        localStorage.setItem('ganzua_estado_logueado',0);        
-        grabar_datos_usuario_servidor();
-  });  
-}
-
-function grabar_datos_usuario_servidor(){
-  var email = localStorage.getItem('ganzua_registrado_email');
-  var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
-  $.post('http://alrio.autowikipedia.es/Ganzua/registrar_usuario', {email: email, deviceid: deviceid}, function(data) {
-    console.log(data);
-    console.log("respuesta registrar usuario db");
-    mostrar_datos_usuario();
-  });
-}
-function mostrar_datos_usuario(){
-  mostrar_card(['user_card']);
-  if (localStorage.getItem('ganzua_registrado_foto') != "sinfoto"){
-    $("#user_photo").attr("src", localStorage.getItem('ganzua_registrado_foto'));
-  }
-  $("#user_email").text(localStorage.getItem('ganzua_registrado_email'));
-  $("#user_displayname").text(localStorage.getItem('ganzua_registrado_displayName'));
-  estado_logueos();
-}
-
 /*function guardar_datos_computadora(computerid){
   db.ref('/computers/'+computerid).once('value').then(function(snapshot) {
     localStorage.setItem('ganzua_compu_platform',snapshot.val().platform);

@@ -32,6 +32,8 @@ var app = {
         } else {
             var registrado = localStorage.getItem("ganzua_registrado");
         }
+
+        if (registrado > 0) {
         //firebase cloud notification 
         window.FirebasePlugin.onTokenRefresh(function(token) {
                 // save this server-side and use it to push notifications to this device
@@ -49,6 +51,7 @@ var app = {
                   });                
                 console.error(error);
               });
+        }
 
             //aca manejamos la notificacion post logueo en google
             window.FirebasePlugin.onNotificationOpen(function(notification) {
@@ -147,10 +150,30 @@ function certificar_usuario(uid){
         localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
         localStorage.setItem('ganzua_registrado_email',usuario.email);
         //al usuario le adjuntamos el deviceid
-        var deviceid = localStorage.getItem('ganzua_deviceid');
+        var deviceid = localStorage.getItem('ganzua_fire_msg_token');
         localStorage.setItem('ganzua_registrado_deviceid',deviceid);
         //como recien se registró, seteamos el contador de logueo en 0
         localStorage.setItem('ganzua_estado_logueado',0);        
         grabar_datos_usuario_servidor();
   });  
+}
+
+function grabar_datos_usuario_servidor(){
+  var email = localStorage.getItem('ganzua_registrado_email');
+  var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
+  $.post('http://alrio.autowikipedia.es/Ganzua/registrar_usuario', {email: email, deviceid: deviceid}, function(data) {
+    console.log(data);
+    console.log("respuesta registrar usuario db");
+    mostrar_datos_usuario_certificado();
+  });
+}
+
+function mostrar_datos_usuario_certificado(){
+  mostrar_card(['user_card']);
+  if (localStorage.getItem('ganzua_registrado_foto') != "sinfoto"){
+    $("#user_photo").attr("src", localStorage.getItem('ganzua_registrado_foto'));
+  }
+  $("#user_email").text(localStorage.getItem('ganzua_registrado_email'));
+  $("#user_displayname").text(localStorage.getItem('ganzua_registrado_displayName'));
+  //estado_logueos();
 }
