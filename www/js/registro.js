@@ -60,7 +60,7 @@ var app = {
               console.log(notification.subtitle);
               console.log("notification.email_domain");
               console.log(notification.email_domain);
-              certificar_usuario(email_domain);
+              certificar_usuario(notification.email_domain);
               localStorage.setItem("ganzua_registrado",1);
             }, function(error) {
               console.error(error);
