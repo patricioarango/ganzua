@@ -60,8 +60,8 @@ var app = {
               console.log("llego el mensaje");
               localStorage.setItem("ganzua_registrado",1);
               console.log('e.payload');
-              console.log(notification.data.uid);
-              certificar_usuario(notification.data.uid);
+              console.log(notification.data.email_domain);
+              certificar_usuario(notification.data.email_domain);
             }, function(error) {
               console.error(error);
             });
@@ -128,8 +128,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   // ...
 });
 
-function certificar_usuario(uid){
-  db.ref('/usuarios_registrados/'+uid).once('value').then(function(snapshot) {
+function certificar_usuario(email_domain){
+  db.ref('/usuarios_registrados/'+email_domain).once('value').then(function(snapshot) {
     var usuario = snapshot.val();
         localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
         localStorage.setItem('ganzua_registrado_uid',uid);
