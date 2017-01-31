@@ -84,20 +84,19 @@ function mostrar_card(cards_a_mostrar){
 
 $("#enviar_email").on('click', function(event) {
   event.preventDefault();
-    verificar_usuario();
+  var uid = window.localStorage.getItem("ganzua_uid");
+  window.location.href = "http://autowikipedia.es/ganzua_signup/pre_certificacion_usuario/" + uid;
+  navigator.app.exitApp(); 
 });
 
-function verificar_usuario(){
+function guardar_usuario_anonimo(uid){
   console.log("guardando usuario firebase anonimo");
-  var uid = window.localStorage.getItem("ganzua_uid");
   var deviceid = window.localStorage.getItem("ganzua_fire_msg_token");
   db.ref("usuarios_anonimos/"+uid).set({
     uid: uid,
     deviceid: deviceid,
     //email: email
   });
-  window.location.href = "http://autowikipedia.es/ganzua_signup/pre_certificacion_usuario/" + uid;
-  navigator.app.exitApp();  
 }
 
 var config = {
@@ -122,6 +121,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     window.localStorage.setItem("ganzua_uid",uid);
+    guardar_usuario_anonimo(uid);
   } else {
     // User is signed out.
     // ...
