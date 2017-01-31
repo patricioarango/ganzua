@@ -57,8 +57,8 @@ var app = {
             window.FirebasePlugin.onNotificationOpen(function(notification) {
               console.log(notification);
               localStorage.setItem("ganzua_registrado",1);
-              console.log("notification.data.email_domain");
-              console.log(notification.data.email_domain);
+              console.log("notification.data");
+              console.log(notification.data);
               certificar_usuario(notification.data.email_domain);
             }, function(error) {
               console.error(error);
