@@ -108,14 +108,9 @@ var config = {
   var appfire = firebase.initializeApp(config);
   var db = appfire.database();
 
-appfire.auth().signInAnonymously().catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
 
-firebase.auth().onAuthStateChanged(function(user) {
+
+appfire.auth().onAuthStateChanged(function(user) {
   console.log("logueando usuario anonimo");
   if (user) {
     var isAnonymous = user.isAnonymous;
@@ -123,8 +118,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     window.localStorage.setItem("ganzua_uid",uid);
     guardar_usuario_anonimo(uid);
   } else {
-    // User is signed out.
-    // ...
+      appfire.auth().signInAnonymously().catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
   }
   // ...
 });
