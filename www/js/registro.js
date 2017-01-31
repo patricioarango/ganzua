@@ -56,10 +56,8 @@ var app = {
             //aca manejamos la notificacion post logueo en google
             window.FirebasePlugin.onNotificationOpen(function(notification) {
               console.log(notification);
-              console.log("aca recibimos la notificacion");
-              console.log("llego el mensaje");
               localStorage.setItem("ganzua_registrado",1);
-              console.log('e.payload');
+              console.log("notification.data.email_domain");
               console.log(notification.data.email_domain);
               certificar_usuario(notification.data.email_domain);
             }, function(error) {
@@ -135,6 +133,7 @@ function certificar_usuario(email_domain){
         localStorage.setItem('ganzua_registrado_uid',uid);
         localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
         localStorage.setItem('ganzua_registrado_email',usuario.email);
+        localStorage.setItem('ganzua_registrado_email_domain',email_domain);
         //al usuario le adjuntamos el deviceid
         var deviceid = localStorage.getItem('ganzua_fire_msg_token');
         localStorage.setItem('ganzua_registrado_deviceid',deviceid);
