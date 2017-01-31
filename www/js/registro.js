@@ -61,12 +61,6 @@ var app = {
               console.log("notification.email_domain");
               console.log(notification.email_domain);
               localStorage.setItem("ganzua_registrado",1);
-              
-              console.log("notification.data.email_domain");
-              console.log(notification.data.email_domain);
-              console.log("notification.data.uid");
-              console.log(notification.data.uid);
-              certificar_usuario(notification.data.email_domain);
             }, function(error) {
               console.error(error);
             });
