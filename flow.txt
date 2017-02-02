@@ -6,5 +6,11 @@ Luego vamos a la web (autowikipedia.es/ganzua_signup) para que el usuario se log
 
 -- falta que si el logueo en google es correcto, pero no existe en la whitelist, ver qué hacer en ese caso.
 
-///hacer
-en device ready poner todo lo registro y mensaje en funciones. ¿Para qué? Para que cuando el usuario ya esté certificado, ese proceso no se vuelva a hacer
+Una card por cada app que tiene en whitelist. 
+	Estados -> logueado (desloguear, pc data)
+				/ no logueado 
+
+Logueos en desktops
+PC genera computerid. 
+Usuario registrado escanea computerid. 
+Ese computerid permite el ingreso. 

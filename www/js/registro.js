@@ -31,6 +31,7 @@ var app = {
              mostrar_card(['principal_card']);
         } else {
             var registrado = localStorage.getItem("ganzua_registrado");
+            mostrar_datos_usuario_certificado();
         }
 
         if (registrado == 0) {
