@@ -71,7 +71,7 @@ var app = {
 function mostrar_card(cards_a_mostrar){
   $("#loading").hide();
   //cards de sitio
-  cards = ["principal_card","no_authorized_card","user_card","devices_card","escanear_card"];
+  cards = ["principal_card","no_authorized_card","user_card","escanear_card"];
   $.each(cards, function(i, card) {
      $("#"+card).hide();
   });
@@ -167,10 +167,24 @@ function certificar_usuario(email_user){
         localStorage.setItem('ganzua_registrado_deviceid',usuario.deviceid);
         
         //como recien se registró, seteamos el contador de logueo en 0
-        localStorage.setItem('ganzua_estado_logueado',0);        
-        grabar_datos_usuario_servidor();
+        localStorage.setItem('ganzua_estado_logueado',0);
+        get_apps_habilitadas_para_usuario_certificado();        
   });  
 }
+
+function get_apps_habilitadas_para_usuario_certificado(){
+  var email_id =  localStorage.getItem('ganzua_registrado_email_user');
+  db.ref('/whitelist/'+email_id).once('value').then(function(snapshot) {
+    aplicaciones = snapshot.val();
+    $.each(aplicaciones, function(index, app) {
+       db.ref("/"+email_id+"/"+app).set({
+          estado: "No logueado",
+          computerid: "empty",
+        });  
+    }    
+  });   
+  grabar_datos_usuario_servidor();
+} 
 
 function grabar_datos_usuario_servidor(){
   var email = localStorage.getItem('ganzua_registrado_email');
@@ -184,10 +198,11 @@ function grabar_datos_usuario_servidor(){
 
 function mostrar_datos_usuario_certificado(){
   mostrar_card(['user_card']);
+  $("#escanear_card").show();
   if (localStorage.getItem('ganzua_registrado_foto') != "sinfoto"){
     $("#user_photo").attr("src", localStorage.getItem('ganzua_registrado_foto'));
   }
   $("#user_email").text(localStorage.getItem('ganzua_registrado_email'));
   $("#user_displayname").text(localStorage.getItem('ganzua_registrado_displayName'));
-  //estado_logueos();
+  get_apps_estados();
 }
