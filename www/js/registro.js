@@ -145,9 +145,8 @@ appfire.auth().onAuthStateChanged(function(user) {
             $.each(usuario, function(index, val) {
               if (val == email_user) {
                 console.log("alcoyana - alcoyana");
-                console.log("estás habilitado, tomá tu token");
                 localStorage.setItem("ganzua_registrado",1);
-                certificar_usuario(usuario.email_user);     
+                certificar_usuario(email_user);     
               }
             });
           });
@@ -165,7 +164,7 @@ function certificar_usuario(email_user){
         localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
         localStorage.setItem('ganzua_registrado_email',usuario.email);
         localStorage.setItem('ganzua_registrado_email_domain',email_domain);
-        //al usuario le adjuntamos el deviceid
+        //al usuario local le adjuntamos el deviceid
         var deviceid = localStorage.getItem('ganzua_fire_msg_token');
         localStorage.setItem('ganzua_registrado_deviceid',deviceid);
         //como recien se registró, seteamos el contador de logueo en 0
