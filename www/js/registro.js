@@ -56,13 +56,12 @@ var app = {
 
             //aca manejamos la notificacion post logueo en google
             window.FirebasePlugin.onNotificationOpen(function(notification) {
-              console.log(notification);
+              /*console.log(notification);
               console.log("notification.subtitle");
               console.log(notification.subtitle);
               console.log("notification.email_domain");
-              console.log(notification.email_domain);
-              certificar_usuario(notification.email_domain);
-              localStorage.setItem("ganzua_registrado",1);
+              console.log(notification.email_domain);*/
+              
             }, function(error) {
               console.error(error);
             });
@@ -126,6 +125,28 @@ appfire.auth().onAuthStateChanged(function(user) {
     });
   }
   // ...
+});
+
+//aca esperamos que se inserte los usuarios registrados
+db.ref('/usuarios_registrados/'+email_domain).on('value', function(snapshot) {
+  var usuarios_registrados = snapshot.val();
+  console.log("usuarios_registrados");
+  console.log(usuarios_registrados);
+  var email_user;
+  //traemos el email del usuario_anonimo para ver si el insert corresponde a este anonimo
+  var id_usuario_anonimo = window.localStorage.getItem("ganzua_uid");
+  db.ref('/usuarios_anonimos/'+id_usuario_anonimo+'/email_user').once('value').then(function(snapshot) {
+    email_user = snapshot.val();  
+  }); 
+  /*$.each(usuarios_registrados, function(index, val) {
+    if (val == email_user) {
+      console.log("alcoyana - alcoyana");
+      console.log("estás habilitado, tomá tu token");
+      res = true;        
+    }
+  });*/
+    //certificar_usuario(notification.email_domain);
+    //localStorage.setItem("ganzua_registrado",1);
 });
 
 function certificar_usuario(email_domain){
