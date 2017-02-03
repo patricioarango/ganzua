@@ -1,7 +1,7 @@
 
 function get_apps_estados(){
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
-	db.ref('/'+email_id).once('value').then(function(snapshot) {
+	db.ref('ur_apps/'+email_id).once('value').then(function(snapshot) {
     	aplicaciones = snapshot.val();
 	    $.each(aplicaciones, function(index, app) {
 	    	$.each(app, function(index, value) {

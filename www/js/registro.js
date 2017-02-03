@@ -177,7 +177,7 @@ function get_apps_habilitadas_para_usuario_certificado(){
   db.ref('/whitelist/'+email_id).once('value').then(function(snapshot) {
     aplicaciones = snapshot.val();
     $.each(aplicaciones, function(index, app) {
-       db.ref("/"+email_id+"/"+app).set({
+       db.ref("ur_apps/"+email_id+"/"+app).set({
           estado: "No logueado",
           computerid: "empty",
         });  
