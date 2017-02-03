@@ -35,3 +35,74 @@ function get_apps_estados(){
 	    });    
   });   
 }
+
+
+$("#escanear").on('click',function(e) {
+    e.preventDefault();
+    getQrCode();
+});
+
+function getQrCode(){
+        cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          codigo_escaneado(result.text);
+        /*
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+        */        
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      },
+      {
+          "preferFrontCamera" : true, // iOS and Android
+          "showFlipCameraButton" : true, // iOS and Android
+          "prompt" : "Escanea el codigo de barras del sitio", // supported on Android only
+          "formats" : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+          "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+      }
+   );
+}
+
+function codigo_escaneado(computerid){
+    db.ref('/computers/'+computerid).once('value').then(function(snapshot) {
+    	app = snapshot.val();
+    	//chequeamos si el site que viene en la computadora está habilitado para el usuario
+		chequear_ur_app_habilitada(app);    
+  });
+}
+
+function chequear_ur_app_habilitada(app){
+	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
+	db.ref('/ur_apps/'+email_id+'/'+app.site).once('value').then(function(snapshot) {
+		habilitado = snapshot.val();
+		if ($.isEmptyObject(habilitado)){ 
+			navigator.notification.alert("No estás habilitado para entrar a esa Aplicación", ganzu_alertCallback, "Atención", "cerrar");
+		} else {
+			set_ur_computerid(app);
+		}
+	});
+}
+
+function ganzu_alertCallback(){
+	return true;
+}
+
+function set_ur_computerid(app){
+	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
+	db.ref('ur_apps/'+email_id+'/'+app.site).set('value')set({
+          estado: "Supuestamente logueado",
+          computerid: app.computerid,
+          token: "token_generado",
+          fecha: "fecha"
+    });  
+    db.ref('tokens_de_acceso/'+email_id+'/'+app.site).set('value')set({
+          estado: "Supuestamente logueado",
+          computerid: app.computerid,
+          token: "token_generado",
+          email_id: email_id,
+          fecha: "fecha"    	
+    });  
+}
