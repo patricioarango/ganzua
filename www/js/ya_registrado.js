@@ -3,14 +3,13 @@ function get_apps_estados(){
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
 	db.ref('ur_apps/'+email_id).once('value').then(function(snapshot) {
     	aplicaciones = snapshot.val();
+	    $(".aplicaciones").html("");
 	    $.each(aplicaciones, function(index, app) {
-	    	$.each(app, function(index, value) {
-	    		$(".aplicaciones").html("");
 	    		$(".aplicaciones").append('<div class="card" id="devices_card">'+
 	              '<div class="row">'+
 	                '<div class="col s12"> '+
 	                  '<div class="card-content">'+
-	                  	'<span class="card-title">'+value+'</span>'+
+	                  	'<span class="card-title  black-text">'+app+'</span>'+
 	                    '<div class="valign-wrapper">'+
 	                      '<i class="material-icons large">important_devices</i>'+
 	                      '<span class="card-title black-text valign" style="margin-left:0.5em;"><span id="platform">Windows</span>/<span id="browser">Chrome</span></span>'+
@@ -28,6 +27,10 @@ function get_apps_estados(){
 	                '</div>'+
 	              '</div>'+
 	            '</div>');
+	    	
+	    	$.each(app, function(index, value) {
+	    		console.log("aca la data de cada app");
+	    		console.log(value);
 	    	}); 
 	    });    
   });   
