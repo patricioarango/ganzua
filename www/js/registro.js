@@ -143,6 +143,10 @@ appfire.auth().onAuthStateChanged(function(user) {
         if (email_user){ console.log("empieza comparacion");
           $.each(usuarios_registrados, function(index, usuario) {
             $.each(usuario, function(index, val) {
+              console.log("usuario");
+              console.log(usuario);
+              console.log("usuario.email");
+              console.log(usuario.email);
               if (val == email_user) {
                 console.log("alcoyana - alcoyana");
                 localStorage.setItem("ganzua_registrado",1);
