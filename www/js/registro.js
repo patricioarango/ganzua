@@ -147,7 +147,7 @@ if (registrado == 0) {
           localStorage.setItem("ganzua_registrado",1);
           certificar_usuario(usuario.email_user);     
         }
-      }
+      });
     });
 
   });
