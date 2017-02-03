@@ -181,7 +181,7 @@ function get_apps_habilitadas_para_usuario_certificado(){
           estado: "No logueado",
           computerid: "empty",
         });  
-    }    
+    });    
   });   
   grabar_datos_usuario_servidor();
 } 
