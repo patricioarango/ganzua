@@ -141,7 +141,7 @@ appfire.auth().onAuthStateChanged(function(user) {
         console.log(email_user); 
       }); 
 
-      if (email_user != ""){
+      if (email_user){ console.log("empieza comparacion");
         $.each(usuarios_registrados, function(index, usuario) {
           $.each(usuario, function(index, val) {
             if (val == email_user) {
