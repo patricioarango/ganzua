@@ -131,30 +131,29 @@ appfire.auth().onAuthStateChanged(function(user) {
   db.ref('/usuarios_registrados').on('value', function(snapshot) {
     if (localStorage.getItem("ganzua_registrado") === null) {
       var usuarios_registrados = snapshot.val();
-      console.log("usuarios_registrados");
-      console.log(usuarios_registrados);
 
       //traemos el email del usuario_anonimo para ver si el insert corresponde a este anonimo
       var email_user;
       var id_usuario_anonimo = window.localStorage.getItem("ganzua_uid");
       db.ref('/usuarios_anonimos/'+id_usuario_anonimo+'/email_user').once('value').then(function(snapshot) {
-        email_user = snapshot.val();  
+        email_user = snapshot.val(); 
+        console.log("email_user"); 
+        console.log(email_user); 
       }); 
-      
-      $.each(usuarios_registrados, function(index, usuario) {
-        console.log("usuario");
-        console.log(usuario);
-        $.each(usuario, function(index, val) {
-          console.log("val");
-          console.log(val);
-          if (val == email_user) {
-            console.log("alcoyana - alcoyana");
-            console.log("estás habilitado, tomá tu token");
-            localStorage.setItem("ganzua_registrado",1);
-            certificar_usuario(usuario.email_user);     
-          }
+
+      if (email_user != ""){
+        $.each(usuarios_registrados, function(index, usuario) {
+          $.each(usuario, function(index, val) {
+            if (val == email_user) {
+              console.log("alcoyana - alcoyana");
+              console.log("estás habilitado, tomá tu token");
+              localStorage.setItem("ganzua_registrado",1);
+              certificar_usuario(usuario.email_user);     
+            }
+          });
         });
-      });
+      }
+
     }  
   });
 
