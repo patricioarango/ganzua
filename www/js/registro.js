@@ -86,7 +86,7 @@ $("#enviar_email").on('click', function(event) {
   event.preventDefault();
   var uid = window.localStorage.getItem("ganzua_uid");
   window.location.href = "http://autowikipedia.es/ganzua_signup/pre_certificacion_usuario/" + uid;
-  navigator.app.exitApp(); 
+  //navigator.app.exitApp(); 
 });
 
 function guardar_usuario_anonimo(uid){
@@ -128,7 +128,7 @@ appfire.auth().onAuthStateChanged(function(user) {
 });
 
 //aca esperamos que se inserte los usuarios registrados
-db.ref('/usuarios_registrados/'+email_domain).on('value', function(snapshot) {
+db.ref('/usuarios_registrados').on('value', function(snapshot) {
   var usuarios_registrados = snapshot.val();
   console.log("usuarios_registrados");
   console.log(usuarios_registrados);
