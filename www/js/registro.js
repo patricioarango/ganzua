@@ -139,21 +139,20 @@ appfire.auth().onAuthStateChanged(function(user) {
         email_user = snapshot.val(); 
         console.log("email_user"); 
         console.log(email_user); 
-      }); 
-
-      if (email_user){ console.log("empieza comparacion");
-        $.each(usuarios_registrados, function(index, usuario) {
-          $.each(usuario, function(index, val) {
-            if (val == email_user) {
-              console.log("alcoyana - alcoyana");
-              console.log("estás habilitado, tomá tu token");
-              localStorage.setItem("ganzua_registrado",1);
-              certificar_usuario(usuario.email_user);     
-            }
+        
+        if (email_user){ console.log("empieza comparacion");
+          $.each(usuarios_registrados, function(index, usuario) {
+            $.each(usuario, function(index, val) {
+              if (val == email_user) {
+                console.log("alcoyana - alcoyana");
+                console.log("estás habilitado, tomá tu token");
+                localStorage.setItem("ganzua_registrado",1);
+                certificar_usuario(usuario.email_user);     
+              }
+            });
           });
-        });
-      }
-
+        }        
+      }); 
     }  
   });
 
