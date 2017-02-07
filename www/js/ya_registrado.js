@@ -98,7 +98,7 @@ function getQrCode(){
 
 function codigo_escaneado(computerid){
     db.ref('/computers/'+computerid).once('value').then(function(snapshot) {
-    	app = snapshot.val();
+    	computer = snapshot.val();
     	//chequeamos si el site que viene en la computadora está habilitado para el usuario
 		chequear_ur_app_habilitada(computer);    
   });
@@ -128,12 +128,11 @@ function set_ur_computerid(computer){
           computerid: computer.computerid,
     });  
     db.ref('tokens_de_acceso/'+email_id+'/'+computer.app).set({
-          estado: "Supuestamente logueado",
           computerid: app.computerid,
           token: token,
           email_id: email_id,
           deviceid: deviceid,
-          fecha: "fecha"    	
+          fecha: Date.now(),    	
     });  
 }
 
