@@ -119,13 +119,13 @@ function ganzu_alertCallback(){
 
 function set_ur_computerid(app){
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
-	db.ref('ur_apps/'+email_id+'/'+app.site).set('value')set({
+	db.ref('ur_apps/'+email_id+'/'+app.site).set({
           estado: "Supuestamente logueado",
           computerid: app.computerid,
           token: "token_generado",
           fecha: "fecha"
     });  
-    db.ref('tokens_de_acceso/'+email_id+'/'+app.site).set('value')set({
+    db.ref('tokens_de_acceso/'+email_id+'/'+app.site).set({
           estado: "Supuestamente logueado",
           computerid: app.computerid,
           token: "token_generado",
