@@ -124,10 +124,10 @@ function set_ur_computerid(computer){
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
 	var deviceid =  localStorage.getItem('deviceid');
 	var token = create_token();
-	db.ref('ur_apps/'+email_id+'/'+computer.app).set({
+	db.ref('ur_apps/'+email_id+'/'+computer.app_id).set({
           computerid: computer.computerid,
     });  
-    db.ref('tokens_de_acceso/'+email_id+'/'+computer.app).push({
+    db.ref('tokens_de_acceso/'+email_id+'/'+computer.app_id).push({
           computerid: app.computerid,
           token: token,
           email_id: email_id,
