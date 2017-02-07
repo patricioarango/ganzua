@@ -87,9 +87,9 @@ function getQrCode(){
           alert("Scanning failed: " + error);
       },
       {
-          "preferFrontCamera" : true, // iOS and Android
-          "showFlipCameraButton" : true, // iOS and Android
-          "prompt" : "Escanea el codigo de barras del sitio", // supported on Android only
+          "preferFrontCamera" : false, // iOS and Android
+          "showFlipCameraButton" : false, // iOS and Android
+          "prompt" : "Escaneá el Código de Barras de la Aplicación!", // supported on Android only
           "formats" : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
           "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
       }
@@ -106,7 +106,7 @@ function codigo_escaneado(computerid){
 
 function chequear_ur_app_habilitada(computer){
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
-	db.ref('/ur_apps/'+email_id+'/'+computer.app).once('value').then(function(snapshot) {
+	db.ref('/ur_apps/'+email_id+'/'+computer.app_id).once('value').then(function(snapshot) {
 		habilitado = snapshot.val();
 		if ($.isEmptyObject(habilitado)){ 
 			navigator.notification.alert("No estás habilitado para entrar a esa Aplicación", ganzu_alertCallback, "Atención", "cerrar");
