@@ -127,7 +127,7 @@ function set_ur_computerid(computer){
 	db.ref('ur_apps/'+email_id+'/'+computer.app_id).set({
           computerid: computer.computerid,
     });  
-    db.ref('tokens_de_acceso/'+email_id+'/'+computer.app_id).push({
+    db.ref('tokens_de_acceso/'+email_id+'/'+computer.app_id).set({
           computerid: app.computerid,
           token: token,
           email_id: email_id,
