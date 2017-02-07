@@ -4,40 +4,67 @@ function get_apps_estados(){
 	db.ref('ur_apps/'+email_id).once('value').then(function(snapshot) {
     	aplicaciones = snapshot.val();
 	    $(".aplicaciones").html("");
-	    $.each(aplicaciones, function(index, app) { console.log("app");
-	    		$(".aplicaciones").append('<div class="card" id="devices_card">'+
-	              '<div class="row">'+
-	                '<div class="col s12"> '+
-	                  '<div class="card-content">'+
-	                  	'<span class="card-title  black-text">'+index+'</span>'+
-	                    '<div class="valign-wrapper">'+
-	                      '<i class="material-icons large">important_devices</i>'+
-	                      '<span class="card-title black-text valign" style="margin-left:0.5em;"><span id="platform">Windows</span>/<span id="browser">Chrome</span></span>'+
-	                    '</div>'+
-	                    '<div class="right-align">'+
-	                      '<p id="fecha">Martes 17 de Julio de 2016</p>'+
-	                      '<p><span id="city">CABA</span>, <span id="region">Buenos Aires</span> (<span id="country">Argentina</span>)</p> '+
-	                    '</div>'+              
-	                  '</div>'+
-	                '</div>'+
-	              '</div>'+
-	              '<div class="row">'+
-	                '<div class="card-action col s12">'+
-	                  '<div class="white-text right"><a href="#"> Logout from This <i class="material-icons">power_settings_new</i></a></div>'+
-	                '</div>'+
-	              '</div>'+
-	            '</div>');
+	    $.each(aplicaciones, function(nombre_app, app_computer) { 
+	    	var datos_computadora = {};
 	    	
-	    	$.each(app, function(index, value) {
-	    		//console.log("aca la data de cada app");
-	    		//console.log(value);
+	    	$.each(app_computer, function(computerid_key, computerid_value) {
+	    		if (computerid_value != "empty"){
+	    			db.ref('computers/'+computerid_value).once('value').then(function(snapshot) {
+	    				datos_computadora = snapshot.val();
+	    			});
+	    		}
+	    		insertar_card_computadora(nombre_app,datos_computadora);
 	    	}); 
 	    });    
   });   
 }
 
+function insertar_card_computadora(nombre_app,datos_computadora){
+	var card_html = crear_card_computadora_html(nombre_app,datos_computadora);
+	$(".aplicaciones").append(card_html);
+}
 
-$("#escanear").on('click',function(e) {
+function crear_card_computadora_html(nombre_app,datos_computadora){
+	var computadora;
+	var action;
+	var card_id  = nombre_app;
+	if ($.isEmptyObject(datos_computadora)){
+		computadora = "";
+		action =	'<div class="card-action">'+
+			               '<div class="right"><a href="#" class="escanear"> Log In <i class="material-icons">add_a_photo</i></a></div>'+
+			            '</div>';
+	} else {
+		computadora =	'<div class="valign-wrapper">'+
+			                    '<i class="material-icons large">important_devices</i>'+
+			                      '<span class="card-title black-text valign" style="margin-left:0.5em;"><span>'+datos_computadora.platform+'</span>/<span>'+datos_computadora.browser+'</span></span>'+
+			                '</div>'+
+		                    '<div class="right-align">'+
+		                      '<p>'+datos_computadora.fecha+'</p>'+
+		                      '<p><span>'+datos_computadora.city+'</span>, <span>'+datos_computadora.region+'</span> (<span>'+datos_computadora.country+'</span>)</p> '+
+		                    '</div>';
+
+		action =	'<div class="card-action">'+
+			               '<div class="right"><a href="#"> Logout from This <i class="material-icons">power_settings_new</i></a></div>'+
+			            '</div>';
+	}
+
+	var card = '<div class="row">'+
+	    '<div class="col s12"> '+
+			'<div class="card" id="'card_id'">'+
+	      		'<div class="card-content">'+
+	      			'<span class="card-title  black-text">'+nombre_app+'</span>'+
+			computadora +
+			'</div>'+	
+			action +
+	      '</div>'+
+	    '</div>'+
+	  '</div>';
+
+	return card;
+
+}
+
+$(".escanear").on('click',function(e) {
     e.preventDefault();
     getQrCode();
 });

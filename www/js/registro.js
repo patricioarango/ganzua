@@ -178,7 +178,6 @@ function get_apps_habilitadas_para_usuario_certificado(){
     aplicaciones = snapshot.val();
     $.each(aplicaciones, function(index, app) {
        db.ref("ur_apps/"+email_id+"/"+app).set({
-          estado: "No logueado",
           computerid: "empty",
         });  
     });    
