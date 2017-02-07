@@ -18,3 +18,6 @@ Ese computerid permite el ingreso.
 
 FALTAAA///
 sacar permisos que no se usan
+apps ids
+generar token
+control acl_control
