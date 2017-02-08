@@ -21,3 +21,6 @@ sacar permisos que no se usan
 apps ids
 generar token
 control acl_control
+actualizar card de computadora ingresada
+
+AGREGAR LO DE FIREBASE a iron_acl
