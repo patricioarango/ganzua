@@ -199,7 +199,7 @@ function grabar_datos_usuario_servidor(app_url){
   $.post(app_url+'/ganzua_login/registrar_deviceid_usuario', {email: email, deviceid: deviceid}, function(data) {
     console.log(data);
     console.log("respuesta registrar usuario db");
-  }).fail({
+  }).fail(function(error){ 
     console.log(error.responseText);
     Materialize.toast(error.responseText.texto, 4000); 
   });
