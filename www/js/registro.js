@@ -176,22 +176,32 @@ function get_apps_habilitadas_para_usuario_certificado(){
   var email_id =  localStorage.getItem('ganzua_registrado_email_user');
   db.ref('/whitelist/'+email_id).once('value').then(function(snapshot) {
     aplicaciones = snapshot.val();
+    //primero borramos para que no queden apps viejas
+    db.ref("ur_apps/"+email_id).remove();
+
     $.each(aplicaciones, function(index, app) {
-       db.ref("ur_apps/"+email_id+"/"+app).set({
-          computerid: "empty",
-        });  
+      //buscamos la data de cada app
+      db.ref('/apps/'+app).once('value').then(function(snapshot) {
+      var app_data = snapshot.val();
+          db.ref("ur_apps/"+email_id+"/"+app_data.app_id).set({
+            computerid: "empty",
+          }); 
+      grabar_datos_usuario_servidor(app_data.app_url);    
+      }); 
     });    
   });   
-  grabar_datos_usuario_servidor();
+ mostrar_datos_usuario_certificado();
 } 
 
-function grabar_datos_usuario_servidor(){
+function grabar_datos_usuario_servidor(app_url){
   var email = localStorage.getItem('ganzua_registrado_email');
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
-  $.post('http://alrio.autowikipedia.es/Ganzua/registrar_usuario', {email: email, deviceid: deviceid}, function(data) {
+  $.post(app_url+'/ganzua_login/registrar_deviceid_usuario', {email: email, deviceid: deviceid}, function(data) {
     console.log(data);
     console.log("respuesta registrar usuario db");
-    mostrar_datos_usuario_certificado();
+  }).fail({
+    console.log(error.responseText);
+    Materialize.toast(error.responseText.texto, 4000); 
   });
 }
 

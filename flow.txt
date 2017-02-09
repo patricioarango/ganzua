@@ -20,7 +20,20 @@ FALTAAA///
 sacar permisos que no se usan
 apps ids
 generar token
-control acl_control
+control acl_control (si el usuario es apto para esta aplicacion, si la fecha del token es valido, si el email y el deviceid existen en la db)
 actualizar card de computadora ingresada
 
 AGREGAR LO DE FIREBASE a iron_acl
+
+
+Ganzua signup (autowikipedia) controla el primer paso de registración
+Ganzua login - En cada sitio crea los QR y administra los login. Controla que el token no esté expirado y que el usuario esté habilitado para esa app. 
+Ganzua (autowikipedia) funciones generales centralizadas de Ganzúa (creación de tokens)
+
+En acl_control se controla que el hash sea correcto.
+
+
+En el config va la palabra secreta. 
+
+El acl_usuarios_model tiene una función para updatear el deviceid y otra para traer al usuario por email
+UPDATE DE DEVICE ID EN WHITELIST
