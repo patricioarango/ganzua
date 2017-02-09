@@ -185,8 +185,8 @@ function get_apps_habilitadas_para_usuario_certificado(){
       var app_data = snapshot.val();
           db.ref("ur_apps/"+email_id+"/"+app_data.app_id).set({
             computerid: "empty",
+            grabar_datos_usuario_servidor(app_data.app_url);    
           }); 
-      grabar_datos_usuario_servidor(app_data.app_url);    
       }); 
     });    
   });   

@@ -6,14 +6,16 @@ function get_apps_estados(){
 	    $(".aplicaciones").html("");
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
 	    	var datos_computadora = {};
-	    	
-	    	$.each(app_computer, function(computerid_key, computerid_value) {
-	    		if (computerid_value != "empty"){
-	    			db.ref('computers/'+computerid_value).once('value').then(function(snapshot) {
-	    				datos_computadora = snapshot.val();
-	    			});
-	    		}
-	    		insertar_card_computadora(nombre_app,datos_computadora);
+	    	db.ref('apps/'+nombre_app).once('value').then(function(snapshot) {
+	    		var datos_completos = snapshot.val();
+		    	$.each(app_computer, function(computerid_key, computerid_value) {
+		    		if (computerid_value != "empty"){
+		    			db.ref('computers/'+computerid_value).once('value').then(function(snapshot) {
+		    				datos_computadora = snapshot.val();
+		    			});
+		    		}
+		    		insertar_card_computadora(datos_completos.app_lectura,datos_computadora);
+		    	});
 	    	}); 
 	    });    
   });   
