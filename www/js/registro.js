@@ -183,7 +183,6 @@ function get_apps_habilitadas_para_usuario_certificado(){
       //buscamos la data de cada app
       db.ref('/apps/'+app).once('value').then(function(snapshot) {
       var app_data = snapshot.val();
-      console.log(app_data);
       grabar_datos_usuario_servidor(app_data.app_url);    
       
           db.ref("ur_apps/"+email_id+"/"+app_data.app_id).set({
@@ -210,6 +209,7 @@ function grabar_datos_usuario_servidor(app_url){
 
 function mostrar_datos_usuario_certificado(){
   mostrar_card(['user_card']);
+  console.log("mostrar_card(['user_card']");
   $("#escanear_card").show();
   if (localStorage.getItem('ganzua_registrado_foto') != "sinfoto"){
     $("#user_photo").attr("src", localStorage.getItem('ganzua_registrado_foto'));

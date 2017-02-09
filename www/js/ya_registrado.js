@@ -1,13 +1,18 @@
 
 function get_apps_estados(){
+	console.log("get_apps_estados");
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
 	db.ref('ur_apps/'+email_id).once('value').then(function(snapshot) {
     	aplicaciones = snapshot.val();
 	    $(".aplicaciones").html("");
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
 	    	var datos_computadora = {};
-	    	db.ref('apps/'+nombre_app).once('value').then(function(snapshot) {
+
+	    	//traemos el nombre de lectura de la app
+	    	db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
 	    		var datos_completos = snapshot.val();
+	    	}); 	
+	    		//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
 		    		if (computerid_value != "empty"){
 		    			db.ref('computers/'+computerid_value).once('value').then(function(snapshot) {
@@ -16,20 +21,22 @@ function get_apps_estados(){
 		    		}
 		    		insertar_card_computadora(datos_completos.app_lectura,datos_computadora);
 		    	});
-	    	}); 
+	    	
 	    });    
   });   
 }
 
 function insertar_card_computadora(nombre_app,datos_computadora){
+	console.log("insertar_card_computadora");
 	var card_html = crear_card_computadora_html(nombre_app,datos_computadora);
 	$(".aplicaciones").append(card_html);
 }
 
 function crear_card_computadora_html(nombre_app,datos_computadora){
+	console.log("crear_card_computadora_html");
 	var computadora;
 	var action;
-	var card_id  = nombre_app;
+	var card_id = nombre_app;
 	var icon;
 	if ($.isEmptyObject(datos_computadora)){
 		computadora = "";
