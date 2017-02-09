@@ -2,6 +2,7 @@
 function get_apps_estados(){
 	console.log("get_apps_estados");
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
+	var datos_completos = {};
 	db.ref('ur_apps/'+email_id).once('value').then(function(snapshot) {
     	aplicaciones = snapshot.val();
 	    $(".aplicaciones").html("");
@@ -10,7 +11,7 @@ function get_apps_estados(){
 
 	    	//traemos el nombre de lectura de la app
 	    	db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
-	    		var datos_completos = snapshot.val();
+	    		datos_completos = snapshot.val();
 	    	}); 	
 	    		//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
