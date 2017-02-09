@@ -185,8 +185,8 @@ function get_apps_habilitadas_para_usuario_certificado(){
       var app_data = snapshot.val();
           db.ref("ur_apps/"+email_id+"/"+app_data.app_id).set({
             computerid: "empty",
-            grabar_datos_usuario_servidor(app_data.app_url);    
           }); 
+          grabar_datos_usuario_servidor(app_data.app_url);    
       }); 
     });    
   });   
@@ -194,11 +194,11 @@ function get_apps_habilitadas_para_usuario_certificado(){
 } 
 
 function grabar_datos_usuario_servidor(app_url){
+  console.log("respuesta registrar usuario db");
   var email = localStorage.getItem('ganzua_registrado_email');
   var deviceid = localStorage.getItem('ganzua_registrado_deviceid');
   $.post(app_url+'/ganzua_login/registrar_deviceid_usuario', {email: email, deviceid: deviceid}, function(data) {
     console.log(data);
-    console.log("respuesta registrar usuario db");
   }).fail(function(error){ 
     console.log(error.responseText);
     Materialize.toast(error.responseText.texto, 4000); 
