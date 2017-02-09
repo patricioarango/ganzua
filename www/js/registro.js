@@ -183,10 +183,13 @@ function get_apps_habilitadas_para_usuario_certificado(){
       //buscamos la data de cada app
       db.ref('/apps/'+app).once('value').then(function(snapshot) {
       var app_data = snapshot.val();
+      console.log(app_data);
+      grabar_datos_usuario_servidor(app_data.app_url);    
+      
           db.ref("ur_apps/"+email_id+"/"+app_data.app_id).set({
             computerid: "empty",
           }); 
-          grabar_datos_usuario_servidor(app_data.app_url);    
+
       }); 
     });    
   });   
