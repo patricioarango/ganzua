@@ -133,7 +133,8 @@ function ganzu_alertCallback(){
 
 function set_ur_computerid(computer){
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
-	var deviceid =  localStorage.getItem('deviceid');
+	var email =  localStorage.getItem('ganzua_registrado_email');
+	var deviceid =  localStorage.getItem('ganzua_registrado_deviceid');
 	var fecha = Date.now();
 	$.post('http://autowikipedia.es/ganzua/create_login_token', {email_id: email_id,deviceid: deviceid,fecha: fecha}, function(token) {
 		db.ref('ur_apps/'+email_id+'/'+computer.app_id).set({
@@ -143,6 +144,7 @@ function set_ur_computerid(computer){
 	          computerid: computer.computerid,
 	          token: token,
 	          email_id: email_id,
+	          email: email,
 	          deviceid: deviceid,
 	          fecha: fecha,    	
 	    });
