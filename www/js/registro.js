@@ -129,7 +129,7 @@ appfire.auth().onAuthStateChanged(function(user) {
 
   //aca esperamos que se inserte los usuarios registrados
   db.ref('/usuarios_registrados').on('value', function(snapshot) {
-    if (localStorage.getItem("ganzua_registrado") === null) {
+    if (window.localStorage.getItem("ganzua_registrado") === null) {
       var usuarios_registrados = snapshot.val();
 
       //traemos el email del usuario_anonimo para ver si el insert corresponde a este anonimo
@@ -145,7 +145,7 @@ appfire.auth().onAuthStateChanged(function(user) {
             $.each(usuario, function(index, val) {
               if (val == email_user) {
                 console.log("alcoyana - alcoyana");
-                localStorage.setItem("ganzua_registrado",1);
+                window.localStorage.setItem("ganzua_registrado",1);
                 certificar_usuario(email_user);     
               }
             });
@@ -157,6 +157,7 @@ appfire.auth().onAuthStateChanged(function(user) {
 
 function certificar_usuario(email_user){
   console.log("certificar_usuario");
+  var deviceid = window.localStorage.getItem("ganzua_fire_msg_token");
   db.ref('/usuarios_registrados/'+email_user).once('value').then(function(snapshot) {
     var usuario = snapshot.val();
         localStorage.setItem('ganzua_registrado_displayName',usuario.displayName);
@@ -164,7 +165,7 @@ function certificar_usuario(email_user){
         localStorage.setItem('ganzua_registrado_foto',usuario.photoUrl);
         localStorage.setItem('ganzua_registrado_email',usuario.email);
         localStorage.setItem('ganzua_registrado_email_user',usuario.email_user);
-        localStorage.setItem('ganzua_registrado_deviceid',usuario.deviceid);
+        localStorage.setItem('ganzua_registrado_deviceid',deviceid);
         
         //como recien se registró, seteamos el contador de logueo en 0
         localStorage.setItem('ganzua_estado_logueado',0);
