@@ -35,17 +35,22 @@ var app = {
         }
 
         if (registrado == 0) {
+        $("#enviar_email").hide();  
         //firebase cloud notification 
         window.FirebasePlugin.onTokenRefresh(function(token) {
                 // save this server-side and use it to push notifications to this device
                 console.log(token);
                 window.localStorage.setItem("ganzua_fire_msg_token",token);
+                var uid = window.localStorage.getItem("ganzua_uid");
+                guardar_usuario_anonimo(uid);
                 //guardar_token(token);
               }, function(error) {
                 window.FirebasePlugin.getToken(function(token) {
                     // save this server-side and use it to push notifications to this device
                     console.log(token);
                     window.localStorage.setItem("ganzua_fire_msg_token",token);
+                    var uid = window.localStorage.getItem("ganzua_uid");
+                    guardar_usuario_anonimo(uid);
                     //guardar_token(token);
                   }, function(error) {
                     console.error(error);
@@ -90,6 +95,7 @@ $("#enviar_email").on('click', function(event) {
 });
 
 function guardar_usuario_anonimo(uid){
+  $("#enviar_email").show();
   console.log("guardando usuario firebase anonimo");
   var deviceid = window.localStorage.getItem("ganzua_fire_msg_token");
   db.ref("usuarios_anonimos/"+uid).set({
@@ -116,7 +122,7 @@ appfire.auth().onAuthStateChanged(function(user) {
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     window.localStorage.setItem("ganzua_uid",uid);
-    guardar_usuario_anonimo(uid);
+    //guardar_usuario_anonimo(uid);
   } else {
       appfire.auth().signInAnonymously().catch(function(error) {
       // Handle Errors here.
