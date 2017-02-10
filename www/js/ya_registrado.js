@@ -9,10 +9,7 @@ function get_apps_estados(){
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
 	    	var datos_computadora = {};
 
-	    	//traemos el nombre de lectura de la app
-	    	db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
-	    		datos_completos = snapshot.val();
-	    	}); 	
+	    	 	
 	    		//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
 		    		if (computerid_value != "empty"){
@@ -20,7 +17,11 @@ function get_apps_estados(){
 		    				datos_computadora = snapshot.val();
 		    			});
 		    		}
-		    		insertar_card_computadora(datos_completos.app_lectura,datos_computadora);
+		    		//traemos el nombre de lectura de la app
+			    	db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
+			    		datos_completos = snapshot.val();
+		    			insertar_card_computadora(datos_completos.app_lectura,datos_computadora);
+			    	});
 		    	});
 	    	
 	    });    
