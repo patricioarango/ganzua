@@ -151,3 +151,8 @@ function set_ur_computerid(computer){
 	});
 }
 
+//cuando se actualizan los datos de ingreso, actualizamos las cards
+var email_id =  localStorage.getItem('ganzua_registrado_email_user');
+db.ref('ur_apps/'+email_id).on('value', function(snapshot) {
+	get_apps_estados();
+});
