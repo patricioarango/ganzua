@@ -44,7 +44,7 @@ function crear_card_computadora_html(nombre_app,datos_computadora){
 		computadora = "";
 		icon = '<i class="material-icons pink-text">lock_outline</i>';
 		action =	'<div class="card-action">'+
-			               '<div class="right"><a href="#" class="escanear"> Log In </div>'+
+			               '<div class="left"><a href="#" class="escanear"> Log In </div>'+
 			            '</div>';
 	} else {
 		icon = "";
@@ -58,7 +58,7 @@ function crear_card_computadora_html(nombre_app,datos_computadora){
 		                    '</div>';
 
 		action =	'<div class="card-action">'+
-			               '<div class="right"><a href="#"> Logout from This <i class="material-icons">power_settings_new</i></a></div>'+
+			               '<div class="left"><a href="#" class="logout" data-app="'+card_id+'"> Logout from This <i class="material-icons">power_settings_new</i></a></div>'+
 			            '</div>';
 	}
 
@@ -156,3 +156,16 @@ var email_id =  localStorage.getItem('ganzua_registrado_email_user');
 db.ref('ur_apps/'+email_id).on('value', function(snapshot) {
 	get_apps_estados();
 });
+
+$(".logout").on('click',function(e) {
+    e.preventDefault();
+	var app_id = $(this).data("app");
+	desloguear(app_id);
+});
+
+function desloguear(app_id){
+	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
+		db.ref('ur_apps/'+email_id+'/'+app_id).set({
+	          computerid: computer.computerid,
+	    });	
+}
