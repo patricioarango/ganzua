@@ -166,6 +166,6 @@ $(".logout").on('click',function(e) {
 function desloguear(app_id){
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
 		db.ref('ur_apps/'+email_id+'/'+app_id).set({
-	          computerid: computer.computerid,
+	          computerid: "empty",
 	    });	
 }
