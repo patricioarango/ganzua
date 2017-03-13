@@ -78,7 +78,7 @@ function crear_card_computadora_html(nombre_app,datos_computadora){
 
 }
 
-$(".escanear").on('click',function(e) {
+$(document).on('click','.escanear',function(e) {
     e.preventDefault();
     getQrCode();
 });
@@ -157,7 +157,7 @@ db.ref('ur_apps/'+email_id).on('value', function(snapshot) {
 	get_apps_estados();
 });
 
-$(".logout").on('click',function(e) {
+$(document).on('click','.logout',function(e) {
     e.preventDefault();
 	var app_id = $(this).data("app");
 	desloguear(app_id);
