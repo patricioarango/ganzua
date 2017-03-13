@@ -58,7 +58,7 @@ function crear_card_computadora_html(nombre_app,datos_computadora){
 		                    '</div>';
 
 		action =	'<div class="card-action">'+
-			               '<div class="left"><a href="#" class="logout" data-app="'+card_id+'"> Logout from This <i class="material-icons">power_settings_new</i></a></div>'+
+			               '<div class="left"><a href="#" class="logout" data-app="'+datos_computadora.app_id+'"> Logout from This <i class="material-icons">power_settings_new</i></a></div>'+
 			            '</div>';
 	}
 
