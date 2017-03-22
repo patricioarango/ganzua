@@ -8,20 +8,21 @@ function get_apps_estados(){
 	    $(".aplicaciones").html("");
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
 	    	var datos_computadora = {};
-
-	    	 	
+    	 	
 	    		//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
 		    		if (computerid_value != "empty"){
 		    			db.ref('computers/'+computerid_value).once('value').then(function(snapshot) {
 		    				datos_computadora = snapshot.val();
+				    		//traemos el nombre de lectura de la app
+				    		db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
+				    			datos_completos = snapshot.val();
+				    			insertar_card_computadora(datos_completos.app_lectura,datos_computadora);
+				    		});
 		    			});
-		    		}
-		    		//traemos el nombre de lectura de la app
-			    	db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
-			    		datos_completos = snapshot.val();
+		    		} else {
 		    			insertar_card_computadora(datos_completos.app_lectura,datos_computadora);
-			    	});
+		    		}
 		    	});
 	    	
 	    });    
@@ -140,14 +141,22 @@ function set_ur_computerid(computer){
 		db.ref('ur_apps/'+email_id+'/'+computer.app_id).set({
 	          computerid: computer.computerid,
 	    });  
-	    db.ref('tokens_de_acceso/'+email_id+'/'+computer.app_id).set({
+	    /*db.ref('tokens_de_acceso/'+email_id+'/'+computer.app_id).set({
 	          computerid: computer.computerid,
 	          token: token,
 	          email_id: email_id,
 	          email: email,
 	          deviceid: deviceid,
 	          fecha: fecha,    	
-	    });
+	    });*/
+		db.ref('tokens_de_acceso').push({
+			computerid: computer.computerid,
+			token: token,
+			email_id: email_id,
+			email: email,
+			deviceid: deviceid,
+			fecha: fecha,    	
+		});	
 	});
 }
 

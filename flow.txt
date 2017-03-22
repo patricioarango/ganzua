@@ -20,14 +20,21 @@ Ese computerid permite el ingreso.
 AGREGAR LO DE FIREBASE a iron_acl
 
 
-Ganzua signup (autowikipedia) controla el primer paso de registración
-Ganzua login - En cada sitio crea los QR y administra los login. Controla que el token no esté expirado y que el usuario esté habilitado para esa app. 
-Ganzua (autowikipedia) funciones generales centralizadas de Ganzúa (creación de tokens)
+Ganzua signup controller (autowikipedia) controla el primer paso de registración
+Ganzua (autowikipedia) controller funciones generales centralizadas de Ganzúa (creación de tokens)
+
+
+Ganzua login controller - En cada sitio crea los QR y administra los login. Controla que el token no esté expirado y que el usuario esté habilitado para esa app. 
+GANZUA LIBRARY PARA LOGOUT
 
 En acl_control se controla que el hash sea correcto.
 
 
 En el config va la palabra secreta. 
+$this->_CI->config->item("ganzua_palabra_secreta");
+$this->_CI->config->item("ganzua_app_name");
+
+
 
 El acl_usuarios_model tiene una función para updatear el deviceid y otra para traer al usuario por email
 UPDATE DE DEVICE ID EN WHITELIST
@@ -35,4 +42,7 @@ UPDATE DE DEVICE ID EN WHITELIST
 FALTAAA///
 actualizar card de computadora ingresada
 icono
-todo lo de logout
+logout desde app
+
+
+ur_apps tiene escritura PUBLICA para que pueda funcionar el logout. 
