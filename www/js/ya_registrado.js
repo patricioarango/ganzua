@@ -35,12 +35,15 @@ function get_apps_estados(){
 function insertar_card_computadora(nombre_app,computerid){
 	console.log("insertar_card_computadora");
 	var datos_computadora = {};
+	db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
+		datos_completos = snapshot.val();
+	});	
 	if (computerid != "empty"){
 		db.ref('computers/'+computerid).once('value').then(function(snapshot) {
 			datos_computadora = snapshot.val();
 		});
 	} 	
-	var card_html = crear_card_computadora_html(nombre_app,datos_computadora);
+	var card_html = crear_card_computadora_html(datos_completos.app_lectura,datos_computadora);
 	$(".aplicaciones").append(card_html);
 }
 
