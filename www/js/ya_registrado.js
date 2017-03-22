@@ -35,6 +35,7 @@ function get_apps_estados(){
 function insertar_card_computadora(nombre_app,computerid){
 	console.log("insertar_card_computadora");
 	var datos_computadora = {};
+	var datos_completos = {};
 	if (computerid != "empty"){
 		db.ref('computers/'+computerid).once('value').then(function(snapshot) {
 			datos_computadora = snapshot.val();
