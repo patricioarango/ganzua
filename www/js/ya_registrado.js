@@ -7,27 +7,36 @@ function get_apps_estados(){
     	aplicaciones = snapshot.val();
 	    $(".aplicaciones").html("");
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
-	    		//acá si tiene computerid, buscamos esa data
+	    	insertar_card_computadora(nombre_app,app_computer);
+	    		/*//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
 		    		var datos_computadora = {};
 		    		if (computerid_value != "empty"){
 		    			db.ref('computers/'+computerid_value).once('value').then(function(snapshot) {
 		    				datos_computadora = snapshot.val();
 		    			});
-		    		} 
+		    		} else {
+		    			datos_computadora = {};
+		    		}
 		    		//traemos el nombre de lectura de la app
 		    		db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
 		    			datos_completos = snapshot.val();
 		    			insertar_card_computadora(datos_completos.app_lectura,datos_computadora);
 		    		});
-				});
+				});*/
 	    	
 	    });    
   });   
 }
 
-function insertar_card_computadora(nombre_app,datos_computadora){
+function insertar_card_computadora(nombre_app,computerid){
 	console.log("insertar_card_computadora");
+	var datos_computadora = {};
+	if (computerid != "empty"){
+		db.ref('computers/'+computerid_value).once('value').then(function(snapshot) {
+			datos_computadora = snapshot.val();
+		});
+	} 	
 	var card_html = crear_card_computadora_html(nombre_app,datos_computadora);
 	$(".aplicaciones").append(card_html);
 }
