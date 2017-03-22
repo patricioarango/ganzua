@@ -154,22 +154,22 @@ function set_ur_computerid(computer){
 		db.ref('ur_apps/'+email_id+'/'+computer.app_id).set({
 	          computerid: computer.computerid,
 	    });  
-	    /*db.ref('tokens_de_acceso/'+email_id+'/'+computer.app_id).set({
+	    db.ref('tokens_de_acceso/'+email_id+'/'+computer.app_id).set({
 	          computerid: computer.computerid,
 	          token: token,
 	          email_id: email_id,
 	          email: email,
 	          deviceid: deviceid,
 	          fecha: fecha,    	
-	    });*/
-		db.ref('tokens_de_acceso').push({
+	    });
+		/*db.ref('tokens_de_acceso').push({
 			computerid: computer.computerid,
 			token: token,
 			email_id: email_id,
 			email: email,
 			deviceid: deviceid,
 			fecha: fecha,    	
-		});	
+		});*/	
 	});
 }
 
