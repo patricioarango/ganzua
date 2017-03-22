@@ -195,7 +195,6 @@ function get_apps_habilitadas_para_usuario_certificado(){
           db.ref("ur_apps/"+email_id+"/"+app_data.app_id).set({
             computerid: "empty",
           }); 
-
       }); 
     });    
   });   
