@@ -7,8 +7,10 @@ function get_apps_estados(){
     	aplicaciones = snapshot.val();
 	    $(".aplicaciones").html("");
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
-	    	insertar_card_computadora(nombre_app,app_computer);
-	    	alert(app_computer);
+	    	
+	    		$.each(app_computer, function(computerid_key, computerid_value) {
+					insertar_card_computadora(computerid_key, computerid_value);
+	    		});	
 	    		/*//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
 		    		var datos_computadora = {};
