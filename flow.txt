@@ -46,3 +46,8 @@ logout desde app
 
 
 ur_apps tiene escritura PUBLICA para que pueda funcionar el logout. 
+
+
+para el logout incluir en todo el sitio
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script src="<?php echo asset_url(); ?>js/ganzua_logout.js"></script>
