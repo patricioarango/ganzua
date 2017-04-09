@@ -6,10 +6,14 @@ function get_apps_estados(){
 	db.ref('ur_apps/'+email_id).once('value').then(function(snapshot) {
     	aplicaciones = snapshot.val();
 	    $(".aplicaciones").html("");
+	    console.log("aplicaciones");
+	    console.log(aplicaciones);
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
 	    	
 	    		$.each(app_computer, function(computerid_key, computerid_value) {
 					insertar_card_computadora(nombre_app, computerid_value);
+					console.log("nombre_app");
+					console.log(nombre_app);
 	    		});	
 	    		/*//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
