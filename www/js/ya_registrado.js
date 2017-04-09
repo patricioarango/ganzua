@@ -9,7 +9,7 @@ function get_apps_estados(){
 	    console.log("aplicaciones");
 	    console.log(aplicaciones);
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
-			insertar_card_computadora(nombre_app, app_computer);
+			insertar_card_computadora(nombre_app, app_computer.computerid);
 	    	
 	    		/*$.each(app_computer, function(computerid_key, computerid_value) {
 	    		});	
