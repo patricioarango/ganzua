@@ -9,11 +9,11 @@ function get_apps_estados(){
 	    console.log("aplicaciones");
 	    console.log(aplicaciones);
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
+			insertar_card_computadora(nombre_app, app_computer);
 	    	
-	    		$.each(app_computer, function(computerid_key, computerid_value) {
-					insertar_card_computadora(nombre_app, computerid_value);
+	    		/*$.each(app_computer, function(computerid_key, computerid_value) {
 	    		});	
-	    		/*//acá si tiene computerid, buscamos esa data
+	    		//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
 		    		var datos_computadora = {};
 		    		if (computerid_value != "empty"){
@@ -46,18 +46,13 @@ function insertar_card_computadora(nombre_app,computerid){
 	} 	
 	db.ref('/apps/'+nombre_app).once('value').then(function(snapshot) {
 		datos_completos = snapshot.val();
-		console.log("datos_completos");
-		console.log(datos_completos);
 		var card_html = crear_card_computadora_html(datos_completos.app_lectura,datos_computadora);
-		console.log("card_html");
-		console.log(card_html);
 		$(".aplicaciones").append(card_html);
 	});	
 }
 
 function crear_card_computadora_html(nombre_app,datos_computadora){
 	console.log("crear_card_computadora_html");
-	console.log(nombre_app);
 	var computadora;
 	var action;
 	var card_id = nombre_app;
