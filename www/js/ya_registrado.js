@@ -83,7 +83,7 @@ function crear_card_computadora_html(nombre_app,datos_computadora){
 	    '<div class="col s12"> '+
 			'<div class="card" id="'+card_id+'">'+
 	      		'<div class="card-content">'+
-	      			'<span class="card-title  black-text">'+nombre_app+' '+icon+'</span>'+
+	      			'<span class="card-title  black-text">'+card_id+' '+icon+'</span>'+
 			computadora +
 			'</div>'+	
 			action +
