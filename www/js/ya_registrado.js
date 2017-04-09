@@ -12,8 +12,6 @@ function get_apps_estados(){
 	    	
 	    		$.each(app_computer, function(computerid_key, computerid_value) {
 					insertar_card_computadora(nombre_app, computerid_value);
-					console.log("nombre_app");
-					console.log(nombre_app);
 	    		});	
 	    		/*//acá si tiene computerid, buscamos esa data
 		    	$.each(app_computer, function(computerid_key, computerid_value) {
@@ -40,6 +38,7 @@ function insertar_card_computadora(nombre_app,computerid){
 	console.log("insertar_card_computadora");
 	var datos_computadora = {};
 	var datos_completos = {};
+	var card_html = "";
 	if (computerid != "empty"){
 		db.ref('computers/'+computerid).once('value').then(function(snapshot) {
 			datos_computadora = snapshot.val();
