@@ -222,5 +222,5 @@ function mostrar_datos_usuario_certificado(){
   }
   $("#user_email").text(localStorage.getItem('ganzua_registrado_email'));
   $("#user_displayname").text(localStorage.getItem('ganzua_registrado_displayName'));
-  get_apps_estados();
+  //get_apps_estados();
 }
