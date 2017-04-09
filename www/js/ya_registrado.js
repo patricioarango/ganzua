@@ -3,9 +3,9 @@ function get_apps_estados(){
 	console.log("get_apps_estados");
 	var email_id =  localStorage.getItem('ganzua_registrado_email_user');
 	var datos_completos = {};
+	$(".aplicaciones").html("");
 	db.ref('ur_apps/'+email_id).once('value').then(function(snapshot) {
     	aplicaciones = snapshot.val();
-	    $(".aplicaciones").html("");
 	    console.log("aplicaciones");
 	    console.log(aplicaciones);
 	    $.each(aplicaciones, function(nombre_app, app_computer) { 
