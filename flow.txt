@@ -2,9 +2,29 @@ Registro:
 
 Cuando abrimos la app por primera vez, no sabemos quién es el usuario, por eso creamos un usuario anónimo. También obtenemos el id para enviar mensajes y lo guardamos a ese usuario. 
 
-Luego vamos a la web (autowikipedia.es/ganzua_signup) para que el usuario se loguee con su email. Esto se hace fuera de la app porque Phonegap aún no tiene soporte para Firebase Auth.
+UPDATE: Ahora el auth se hace en el mismo sitio donde queremos usar ganzúa. Se agrega el controlador y la vista Ganzúa. 
+Se loguea con Google.
+En firebase console hay una function que chequea si el email está en la whitelist.
+Si está, el status es enabled. 
+Se genera un QR que contiene: email, displayName,photoUrl.
 
--- falta que si el logueo en google es correcto, pero no existe en la whitelist, ver qué hacer en ese caso.
+	-En Firebase admin se chequea que el email esté en la whitelist.
+	-Si está en la whitelist, creamos el usuario en usuarios_registrados con status "enabled".
+	-Si no, lo creamos con status disabled. 
+	-Si luego le quiero dar permisos a ese usuario, lo que tengo que hacer es:
+		1) Agregarlo a la Whitelist.
+		2) Borrarlo de usuarios registrados.
+		3) Eliminar la cuenta de Firebase Console > Auth > Usuarios (buscar por email). Esto es para que el trigger de la Cloud Function (onCreate) funcione otra vez.
+		3) b) La otra es agregarlo a la whitelist y ponerle status "enabled" en usuarios_registrados. 
+
+Seguridad: Whitelist y Usuarios_Registrados no tienen permisos de escritura, por lo que sólo pueden ser modificadas desde el admin o desde la cloud function.
+
+Estados: Disabled, Enabled, Ready
+
+Desde la App, lo primero que hay que hacer es escanear un QR de registro.
+Luego de leer ese QR, una cloud function debe tomar el email leído, hacer un update y ponerle el device id. 
+	-Poner status "ready"
+	-Enviar Notification.
 
 Una card por cada app que tiene en whitelist. 
 	Estados -> logueado (desloguear, pc data)
